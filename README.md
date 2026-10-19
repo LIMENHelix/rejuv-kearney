@@ -13,7 +13,7 @@ This is a single static page. No build step, no framework, no server. It can be 
 ## What is on the page
 
 - Lion hero + "Stop guessing. Start measuring." positioning
-- Founding 100 offer (21+ bourbon thank-you, with terms)
+- Founding 100 offer: book a consult and start on a coaching and treatment plan, then get a 21+ bourbon thank-you (terms included)
 - Service menu: testosterone/hormone care, medical weight loss (branded tirzepatide only), ED/sexual health, full-body labs, muscle/performance, longevity, PRP, and a peptides **interest list** (not a launch service)
 - Telehealth coaching: testosterone, weight loss, longevity, lifestyle/accountability, men supporting men
 - Audience sections: first responders, military/veterans, divorced dads, dads/families, high performers, men 35+
@@ -36,7 +36,7 @@ These are the assumptions baked into the page. They are easy to change.
 1. **Contact routing is form-only and recipient details are not displayed.** The public page shows no phone number and no email address. The forms deliver to **Ashley as the primary recipient** and **Tracy as a hidden CC**; the addresses live in the form's hidden configuration, encoded so they do not render as plain addresses. For true source-level privacy, put the form behind a server-side relay or use FormSubmit privacy aliases.
 2. **"Free 15-minute consult" and "lab panels from $100."** These came from the partnership model. Confirm with the clinical team before running ads. If the consult is not free, change the hero, header, FAQ, and form heading.
 3. **FormSubmit needs one-time activation for the recipients.** The **first submission** triggers the activation email. Ashley and Tracy should click the activation link before ads run, or the first lead may not be delivered. Submit a clearly labeled test lead after publishing.
-4. **Bourbon offer needs a compliance look.** It is written as 21+, while supplies last, no purchase necessary, ID required at pickup, pickup offsite, not served at the clinic. Have counsel or the clinic's compliance lead review Missouri alcohol-promotion rules before paid promotion. Meta may also restrict alcohol creative; keep ad creative focused on the consult.
+4. **Bourbon offer needs a compliance look.** The gift is tied to booking a consult and starting on a coaching and treatment plan. It is written as 21+, while supplies last, no purchase necessary, ID required at pickup, pickup offsite, not served at the clinic. Have counsel or the clinic's compliance lead review Missouri alcohol-promotion rules before paid promotion. Meta may also restrict alcohol creative; keep ad creative focused on the consult.
 5. **Peptides are not advertised as available.** Your planning sheet says peptides are gated on FDA listings and counsel approval. The page collects interest instead. If they are approved, change the card and the FAQ.
 6. **Branded GLP-1 only.** The page says branded tirzepatide (Zepbound®/Mounjaro®), never compounded. Keep that language unless the clinical team changes the formulary.
 7. **No medical claims or guarantees.** The page says prescriptions require a provider evaluation and not all patients qualify. Keep it that way.
@@ -116,7 +116,7 @@ Everything is in `index.html`: markup, CSS, and JavaScript. There is no build st
 
 Testo is the floating assistant at the bottom right of the page. It is the same pattern as the ReJuv site's Testo: a local keyword-driven answer bank in the page, plus the clinic's xAI voice endpoint for spoken replies and a browser speech fallback.
 
-**What it knows:** Kearney and the Northland, TRT and testosterone labs, full panels, medical weight loss and branded tirzepatide, ED medications, peptides (interest list only), PRP, longevity, performance, telehealth coaching, men's groups, first responders, military/veterans, divorced dads, dads and family days, The 645 Club, 3v3 basketball, football watch nights, men's trips and "man stuff," the Founding 100 bourbon offer, pricing, insurance/HSA/FSA, privacy, hours, partners, and booking.
+**What it knows:** Kearney and the Northland, TRT and testosterone labs, full panels, medical weight loss and branded tirzepatide, ED medications, peptides (interest list only), PRP, longevity, performance, telehealth coaching, men's groups, first responders, military/veterans, divorced dads, dads and family days, The 645 Club, 3v3 basketball, football watch nights, men's trips and "man stuff," the Founding 100 bourbon offer (consult + plan required), pricing, insurance/HSA/FSA, privacy, hours, partners, and booking.
 
 **Guardrails baked into the answer bank:**
 - No dosing, diagnosis, prescribing, or guarantees. Those answers redirect to a licensed provider after labs.
