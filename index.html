@@ -678,6 +678,23 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
 }
 </style>
 <style>
+/* ---------- Treat. Coach. Belong. ---------- */
+.pillars{background:linear-gradient(180deg,var(--ink-2),var(--slate));border-bottom:1px solid var(--line-soft)}
+.pillars .section-head{max-width:820px}
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:8px}
+.pillar{padding:28px 30px 8px 0;border-right:1px solid var(--line)}
+.pillar+.pillar{padding-left:30px}
+.pillar:last-child{border-right:0;padding-right:0}
+.pillar-num{display:block;font-family:var(--font-ui);font-size:.66rem;font-weight:600;letter-spacing:.14em;color:var(--gold);margin-bottom:14px}
+.pillar h3{font-family:var(--font-head);font-size:clamp(1.35rem,2.4vw,1.7rem);font-weight:800;line-height:1.12;margin:0 0 9px;color:var(--text)}
+.pillar p{color:var(--muted);font-size:.94rem;line-height:1.6;margin:0}
+@media(max-width:820px){
+  .pillar-grid{grid-template-columns:1fr}
+  .pillar{border-right:0;border-bottom:1px solid var(--line);padding:22px 0}
+  .pillar+.pillar{padding-left:0}
+  .pillar:last-child{border-bottom:0;padding-bottom:0}
+}
+
 /* ---------- Testo AI concierge ---------- */
 .testo-fab{
   position:fixed;right:18px;bottom:18px;z-index:70;
@@ -830,7 +847,7 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-brand">Rejuv Men's Health + Wellness &middot; </span>Kearney, Missouri</p>
         <h1 id="heroTitle">Stop guessing.<span class="gold">Start measuring.</span></h1>
-        <p class="hero-sub">A private men's clinic for testosterone, weight loss, energy, and performance. Real labs. Real providers. A plan built around your life&mdash;not a script.</p>
+        <p class="hero-sub">A private men's clinic for testosterone, weight loss, energy, and performance. Real labs, real providers, real coaching&mdash;and The 645 Club, where the work meets the brotherhood.</p>
         <div class="hero-actions">
           <a class="btn btn-gold" href="#book">Book your free 15-minute consult <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <a class="btn btn-ghost" href="#services">See what we treat</a>
@@ -858,6 +875,34 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
       </div>
     </div>
   </div>
+
+  <!-- TREAT. COACH. BELONG. -->
+  <section class="section pillars" aria-labelledby="pillarsTitle">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">More than a clinic</p>
+        <h2 id="pillarsTitle">Treat. Coach. Belong.</h2>
+        <p class="lede">Medication is one tool. The plan also covers how you eat, train, sleep, recover, and show up&mdash;and when you start, you become part of The 645 Club.</p>
+      </div>
+      <div class="pillar-grid">
+        <article class="pillar reveal">
+          <span class="pillar-num">01 &middot; Treat</span>
+          <h3>Real medicine, measured.</h3>
+          <p>Labs, provider visits, and prescriptions when appropriate. We measure first, monitor what matters, and tell you the truth.</p>
+        </article>
+        <article class="pillar reveal">
+          <span class="pillar-num">02 &middot; Coach</span>
+          <h3>Lifestyle, training, nutrition.</h3>
+          <p>Workout strategies, food that fits your life, sleep, stress, and accountability. Weekly check-ins and real adjustments.</p>
+        </article>
+        <article class="pillar reveal">
+          <span class="pillar-num">03 &middot; Belong</span>
+          <h3>The 645 Club.</h3>
+          <p>Basketball tournaments, watch parties, group outings, men's groups, father/son and father/daughter days, couples nights, and trips.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <!-- FOUNDING 100 -->
   <section class="section founding" aria-labelledby="foundingTitle">
@@ -964,9 +1009,9 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
   <section class="section coaching" id="coaching" aria-labelledby="coachingTitle">
     <div class="container split">
       <div>
-        <p class="eyebrow">Coaching, wherever you are</p>
-        <h2 id="coachingTitle">A coach in your corner&mdash;not another app you'll delete.</h2>
-        <p class="lede">The prescription is only part of the plan. Our telehealth coaches help you build the food, training, sleep, stress, and accountability systems that make the medicine work. Meet by Zoom or in the app. Weekly check-ins. Real adjustments.</p>
+        <p class="eyebrow">The coaching layer</p>
+        <h2 id="coachingTitle">We don't just treat. We coach.</h2>
+        <p class="lede">Medication is one tool. Our coaches help you build the lifestyle, workout, and nutrition strategies that make it work&mdash;plus sleep, stress, and accountability. Meet by Zoom or in the app. Weekly check-ins. Real adjustments.</p>
         <div class="mental">
           <strong>Men supporting men.</strong> Peer groups and coaching for men navigating stress, divorce, fatherhood, and the pressure to hold it all together. This is not therapy, and it is not crisis care. If you are in crisis, call or text <a href="tel:988">988</a>.
         </div>
@@ -977,6 +1022,7 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
         <ul class="coach-list">
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><div><strong>Testosterone coaching</strong><span>Understand your numbers, your protocol, and what to watch between labs.</span></div></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><div><strong>Weight-loss coaching</strong><span>Nutrition, training, and GLP-1 support that fits a real schedule.</span></div></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><div><strong>Workout &amp; nutrition coaching</strong><span>Training strategies, food that fits your life, and adjustments based on your labs and progress.</span></div></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><div><strong>Longevity coaching</strong><span>ApoB, A1c, hsCRP, sleep, strength&mdash;track what actually moves the needle.</span></div></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><div><strong>Lifestyle &amp; accountability</strong><span>The habits, the check-ins, and the honest feedback most men never get.</span></div></li>
         </ul>
@@ -1034,11 +1080,11 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
       <div class="club-aside">
         <p class="eyebrow">The 645 Club</p>
         <h2 id="clubTitle">Brotherhood,<br>built in.</h2>
-        <p class="lede">A men's club with a clinic attached&mdash;not the other way around. Events are social, separate from your medical record, and open to guests. Come for the basketball. Stay for the guys who've got your back.</p>
+        <p class="lede">When you start a plan, you become part of The 645 Club&mdash;a men's club with a clinic attached. Basketball tournaments, watch parties, group outings, men's groups, father/son and father/daughter days, couples nights, and men's trips. Events are social, separate from your medical record, and open to guests. Come for the basketball. Stay for the guys who've got your back.</p>
         <div class="offer-row" style="margin-top:26px">
           <a class="btn btn-ghost" href="#book" data-interest="645 Club events">Get event invites <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <p class="club-note">Events are social, not clinical. Alcohol stays offsite; 21+ where applicable. Event rosters stay separate from patient records. Guests are always welcome.</p>
+        <p class="club-note">Men's groups include divorced dads, military, first responders, and weight-loss groups. Events are social, not clinical. Alcohol stays offsite; 21+ where applicable. Event rosters stay separate from patient records. Couples and guests are always welcome.</p>
       </div>
 
       <div>
@@ -1073,6 +1119,21 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
             <div><h3>Watch nights &amp; speaker nights</h3><p>Fight nights, football, and conversations worth having after the final whistle.</p></div>
             <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
+          <a class="event" href="#book" data-interest="645 Club events">
+            <span class="event-num">07</span>
+            <div><h3>Couples nights</h3><p>Bring your person. Dinner, an outing, or a game&mdash;no clinical talk.</p></div>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="event" href="#book" data-interest="645 Club events">
+            <span class="event-num">08</span>
+            <div><h3>Men's groups</h3><p>Divorced dads, military, first responders, and weight-loss groups. Room to talk.</p></div>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="event" href="#book" data-interest="645 Club events">
+            <span class="event-num">09</span>
+            <div><h3>Group outings</h3><p>Games, ranges, fishing, golf, or whatever the group votes for.</p></div>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
         </div>
       </div>
     </div>
@@ -1101,7 +1162,7 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
         <div class="step reveal">
           <div class="step-num">03</div>
           <h3>Your plan, tracked</h3>
-          <p>Medication, coaching, training, and follow-up labs in one place. We adjust based on data, not guesswork&mdash;and we tell you when something is working.</p>
+          <p>Medication, coaching, training, nutrition, and follow-up labs in one place&mdash;plus The 645 Club for the brotherhood and the fun. We adjust based on data, not guesswork.</p>
         </div>
       </div>
 
@@ -1148,6 +1209,18 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
         <details>
           <summary>Do you offer telehealth?<span class="plus" aria-hidden="true"></span></summary>
           <div class="answer">Coaching and follow-ups can be virtual. Labs and provider visits happen in Kearney, and some treatments require in-person care. Your first consult can be on Zoom or in person&mdash;your call.</div>
+        </details>
+        <details>
+          <summary>What does coaching include?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="answer">Lifestyle changes, workout strategies, nutrition, sleep, stress, and accountability. Weekly check-ins by Zoom or in the app. Medication is one part of the plan, not the whole plan.</div>
+        </details>
+        <details>
+          <summary>Do I have to be a patient to join The 645 Club?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="answer">The club is built around our members. When you start on a coaching and treatment plan, you become part of The 645 Club. Guests are welcome at events, and events stay separate from your medical record.</div>
+        </details>
+        <details>
+          <summary>Can my partner come?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="answer">Yes. Partners are welcome at your visit, and couples nights are part of The 645 Club. The clinical care is focused on men, but the relationship is part of the plan.</div>
         </details>
         <details>
           <summary>What is the story with the bourbon?<span class="plus" aria-hidden="true"></span></summary>
@@ -1707,8 +1780,8 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
     {k:["insurance","hsa","fsa","reimburse","claim","covered","coverage","medicare","medicaid","blue cross","bcbs","aetna","cigna","united healthcare"], a:"We do not bill insurance. HSA and FSA cards are accepted, and we provide documentation you can submit to your insurer. Ask about financing before you commit."},
 
     /* Basics */
-    {k:[" hello "," hi "," hey "," yo "," sup "," good morning "," good afternoon "], a:"Testo here, Kearney's men's health concierge. Ask me about TRT, labs, weight loss, ED, peptides, The 645 Club, basketball, football, or what to expect at your first visit. I will keep it straight and point you to a real provider when it matters."},
-    {k:["who is testo","what is testo","are you a doctor","are you real","are you ai","what can you do","who are you","your name"], a:"I am Testo, the AI concierge for Rejuv Men's Health + Wellness in Kearney. I know the clinic menu, The 645 Club, and enough local color to be dangerous. I do not diagnose or prescribe. That is for the licensed providers."},
+    {k:[" hello "," hi "," hey "," yo "," sup "," good morning "," good afternoon "], a:"Testo here, Kearney's men's health concierge. Ask me about TRT, labs, weight loss, ED, peptides, coaching, The 645 Club, basketball, football, or what to expect at your first visit. I will keep it straight and point you to a real provider when it matters."},
+    {k:["who is testo","what is testo","are you a doctor","are you real","are you ai","what can you do","who are you","your name"], a:"I am Testo, the AI concierge for Rejuv Men's Health + Wellness in Kearney. I know the clinic menu, the coaching program, The 645 Club, and enough local color to be dangerous. I do not diagnose or prescribe. That is for the licensed providers."},
     {k:["grand opening","soft launch","new clinic"," opening ","real clinic"], a:"We are open now in a soft launch. No big grand opening yet. The Founding 100 is the quiet opening. Book a consult; if you start on a coaching and treatment plan, you are in and you get the bourbon."},
 
     /* Founding offer */
@@ -1734,7 +1807,7 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
     {k:["prp","platelet","joint","knee","shoulder"," hip ","injury","arthritis"], a:"PRP is a provider-administered, cash-pay add-on for knees, shoulders, and hips. It is a non-surgical option worth discussing with your provider, not a guarantee. Ask about it at your consult."},
     {k:["longevity","healthspan","apob","hscrp"," aging ","biohack","biohacking"], a:"Longevity here means measuring what matters: ApoB, A1c, hsCRP, hormones, body composition, and grip strength. Quarterly deep panels and a provider-reviewed plan. No anti-aging fairy dust, no unapproved compounds."},
     {k:["muscle","strength","body comp","body composition","training","workout","recovery"], a:"We look at body composition, strength markers, recovery, and the labs underneath. Then we build a plan that fits a grown man's schedule: training, nutrition, sleep, and medication only when appropriate. No bro-science."},
-    {k:["coach","coaching","telehealth","telemedicine","virtual","lifestyle","accountability","nutrition"," sleep "], a:"Telehealth coaching covers testosterone, weight loss, longevity, and lifestyle and accountability. Weekly check-ins, real adjustments, and a coach who asks you about it next week. Zoom or in-app. Labs and provider visits happen in Kearney."},
+    {k:["coach","coaching","telehealth","telemedicine","virtual","lifestyle","accountability","nutrition"," sleep "], a:"We do not just treat. Coaching covers lifestyle changes, workout strategies, nutrition, sleep, stress, and accountability. Weekly check-ins by Zoom or in-app, with real adjustments. Medication is only part of the plan; labs and provider visits happen in Kearney."},
 
     /* Men and community */
     {k:["divorced dad","divorce","single dad","fatherhood","dad life"], a:"Divorced dads: rebuild your health, confidence, and next chapter one measurable step at a time. No shame and no history lesson. The 645 Club and coaching can help with the brotherhood part too."},
@@ -1745,7 +1818,7 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
     {k:["over 35","35+","40+","50+","middle age","getting older"], a:"Energy, strength, libido, and recovery change with age, but normal for your age is not a plan. Get the numbers, then decide what to do. A consult is the starting line."},
 
     /* The club and the fun */
-    {k:["645 club"," club "," event "," events ","mens group","brotherhood","speaker"], a:"The 645 Club is the social side: father/son and father/daughter days, 3v3 basketball, group workouts, men's trips, watch nights, and speaker nights. Events are separate from your medical record and open to guests. Tap Book a consult and choose 645 Club events to get on the list."},
+    {k:["645 club"," club "," event "," events ","mens group","brotherhood","speaker","group outing"], a:"When you start a plan, you become part of The 645 Club: basketball tournaments, watch parties, group outings, men's groups (divorced dads, military, first responders, weight loss), father/son and father/daughter days, couples nights, and men's trips. Events are separate from your medical record and open to guests. Tap Book a consult and choose 645 Club events."},
     {k:["basketball","3v3","3 on 3","hoops","tournament"," court "], a:"Basketball is a 645 Club staple: 3v3 tournaments, league nights, and group runs. Dates and entry details are announced to the event list first. Screening booth at the door; guests welcome. Want the invite list?"},
     {k:["football","nfl","chiefs","game day","gameday","watch party","watch night","super bowl","tailgate"], a:"Football is a 645 Club thing: game-day watch nights, a big screen, food, and no meeting agenda. We are in Chiefs country, but we are not an official team event. Just a room full of guys who know what a cover 2 is. Get on the event list for dates."},
     {k:["men s trip","mens trip"," trip ","fishing","golf","cigar","whiskey","bourbon","grill","truck","hunting","man stuff","guy stuff"], a:"Man stuff is allowed here: bourbon at 21+, cigars offsite, grilling, trucks, fishing, golf, and a training session you will feel on Thursday. The 645 Club turns that into trips, watch nights, and workouts. No bro-toxicity. Just a good room."},
@@ -1754,8 +1827,10 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
     {k:["privacy","private","confidential","hipaa","records","discreet","sell my"], a:"Private rooms, discreet communication, and no waiting-room gossip. We do not sell your information. This chat is educational. Do not share medical details here. We collect those securely during intake."},
     {k:["hours"," open "," close ","when are you"], a:"The clinic is by appointment, and the team confirms your time when they reach out. The public line is 816-343-4883 if you need to ask about the schedule."},
     {k:["phone"," call "," text ","contact","email","reach you"], a:"The clinic's public line is 816-343-4883. You can also use the form on this page and the team will text you within one business day. I do not give out staff emails."},
+    {k:["my partner come","bring my partner","partner come with me"], a:"Partners are welcome at your visit, and couples nights are part of The 645 Club. The clinical care is focused on men, but the relationship is part of the plan."},
     {k:["partner","trainer","chiropractor","chiro","physical therapist"," pt ","referral","gym owner","gym partner"], a:"We partner with trainers, gyms, chiropractors, PTs, barbers, first-responder groups, and local businesses. Co-host an event, offer screening vouchers, or join an education night. Flat co-marketing only, no per-referral payments. Use the partner form on this page."},
-    {k:["age limit","how old","minimum age","women","female","wife","girlfriend","spouse"], a:"This clinic is for adult men. Rejuv's aesthetics and wellness team handles other services. If you are asking about bringing your wife or partner to your visit, she is welcome."},
+    {k:[" couples ","couples night","date night"," wife "," girlfriend "," spouse "], a:"Couples nights are part of The 645 Club. Partners are welcome at your visit too. The clinical care is focused on men, but the relationship is part of the plan."},
+    {k:["age limit","how old","minimum age","women","female"], a:"This clinic is for adult men. Rejuv's aesthetics and wellness team handles other services. If you are asking about care for a woman, the main Rejuv team can point her to the right service."},
     {k:["bring","first visit","what to expect","prepare"], a:"Bring a photo ID, a list of medications, and your questions. Bring your partner if you want. The first visit is a conversation and a plan, not a lecture."},
     {k:["aesthetics","med spa","botox","filler","facial","laser","iv therapy"], a:"Rejuv Men's Health + Wellness is the men's health side of Rejuv. The aesthetics and wellness team handles Botox, fillers, and other services. This page is focused on men's health."},
 

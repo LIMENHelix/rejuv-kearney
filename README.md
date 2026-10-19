@@ -15,9 +15,10 @@ This is a single static page. No build step, no framework, no server. It can be 
 - Lion hero + "Stop guessing. Start measuring." positioning
 - Founding 100 offer: book a consult and start on a coaching and treatment plan, then get a 21+ bourbon thank-you (terms included)
 - Service menu: testosterone/hormone care, medical weight loss (branded tirzepatide only), ED/sexual health, full-body labs, muscle/performance, longevity, PRP, and a peptides **interest list** (not a launch service)
-- Telehealth coaching: testosterone, weight loss, longevity, lifestyle/accountability, men supporting men
+- **Treat. Coach. Belong.** positioning: clinical treatment, lifestyle/workout/nutrition coaching, and The 645 Club membership when a plan starts
+- Telehealth coaching: testosterone, weight loss, longevity, workout/nutrition strategies, lifestyle/accountability, men supporting men
 - Audience sections: first responders, military/veterans, divorced dads, dads/families, high performers, men 35+
-- The 645 Club events: father/son, father/daughter, 3v3 basketball, group workouts, men's trips, watch/speaker nights
+- The 645 Club: basketball tournaments, watch parties, group outings, men's groups (divorced dads, military, first responders, weight-loss groups), father/son, father/daughter, couples nights, group workouts, men's trips, speaker nights
 - Three-step first-visit flow + what to bring
 - FAQ with pricing, privacy, prescriptions, telehealth, bourbon, peptides, ages
 - Performance Partner section with a partner inquiry form
@@ -40,7 +41,8 @@ These are the assumptions baked into the page. They are easy to change.
 5. **Peptides are not advertised as available.** Your planning sheet says peptides are gated on FDA listings and counsel approval. The page collects interest instead. If they are approved, change the card and the FAQ.
 6. **Branded GLP-1 only.** The page says branded tirzepatide (Zepbound®/Mounjaro®), never compounded. Keep that language unless the clinical team changes the formulary.
 7. **No medical claims or guarantees.** The page says prescriptions require a provider evaluation and not all patients qualify. Keep it that way.
-8. **Meta Pixel is not installed.** A ready-to-paste snippet is commented out at the bottom of `index.html`. Replace `YOUR_PIXEL_ID` and uncomment it. The page fires `Lead` on form success. UTM and `fbclid` values are already captured into hidden form fields.
+8. **The 645 Club membership claim.** The page says that starting a coaching and treatment plan makes you part of The 645 Club. Confirm what membership includes, guest rules, couples/family events, and event waivers with the clinic before running ads.
+9. **Meta Pixel is not installed.** A ready-to-paste snippet is commented out at the bottom of `index.html`. Replace `YOUR_PIXEL_ID` and uncomment it. The page fires `Lead` on form success. UTM and `fbclid` values are already captured into hidden form fields.
 
 ---
 
@@ -116,7 +118,7 @@ Everything is in `index.html`: markup, CSS, and JavaScript. There is no build st
 
 Testo is the floating assistant at the bottom right of the page. It is the same pattern as the ReJuv site's Testo: a local keyword-driven answer bank in the page, plus the clinic's xAI voice endpoint for spoken replies and a browser speech fallback.
 
-**What it knows:** Kearney and the Northland, TRT and testosterone labs, full panels, medical weight loss and branded tirzepatide, ED medications, peptides (interest list only), PRP, longevity, performance, telehealth coaching, men's groups, first responders, military/veterans, divorced dads, dads and family days, The 645 Club, 3v3 basketball, football watch nights, men's trips and "man stuff," the Founding 100 bourbon offer (consult + plan required), pricing, insurance/HSA/FSA, privacy, hours, partners, and booking.
+**What it knows:** Kearney and the Northland, TRT and testosterone labs, full panels, medical weight loss and branded tirzepatide, ED medications, peptides (interest list only), PRP, longevity, performance, telehealth coaching, men's groups, first responders, military/veterans, divorced dads, dads and family days, The 645 Club, 3v3 basketball, football watch nights, men's trips and "man stuff," coaching and The 645 Club (couples nights, men's groups, group outings), the Founding 100 bourbon offer (consult + plan required), pricing, insurance/HSA/FSA, privacy, hours, partners, and booking.
 
 **Guardrails baked into the answer bank:**
 - No dosing, diagnosis, prescribing, or guarantees. Those answers redirect to a licensed provider after labs.
@@ -172,6 +174,7 @@ The chat answer bank runs locally in the browser. The only network request from 
 - Have Ashley and Tracy click the FormSubmit activation links, then submit one test lead.
 - For true source-level privacy, move the form behind a server-side relay or replace the endpoints with FormSubmit privacy aliases from the activation emails.
 - Add the clinic's public phone when available (the clinic site lists 816-343-4883).
+- Confirm 645 Club membership inclusions, guest rules, couples/family events, and event waivers.
 - Confirm consult/lab pricing.
 - Have the clinical team review Testo's answer bank, especially TRT, weight loss, ED, peptides, and pricing claims.
 - Test Testo's voice and mute on the live site after the Pages rebuild.
