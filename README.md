@@ -34,9 +34,9 @@ This is a single static page. No build step, no framework, no server. It can be 
 
 These are the assumptions baked into the page. They are easy to change.
 
-1. **Contact routing is form-only and recipient details are not displayed.** The forms use the clinic's public Gmail **rejuvkc@gmail.com** as the activation/primary recipient, with **Ashley and Tracy on the hidden CC**. The CC addresses live in the form's hidden configuration, encoded so they do not render as plain addresses. The public phone fallback is 816-343-4883. For true source-level privacy, put the form behind a server-side relay or use FormSubmit privacy aliases.
+1. **Contact routing is form-only and recipient details are not displayed.** The form uses the activated **chrishubbel72@gmail.com** endpoint temporarily, with **Ashley and Tracy on the hidden CC**. The clinic website lists rejuvkc@gmail.com, but no one can access it. Replace the temporary Gmail with the FormSubmit privacy alias from the activation email (so the address is not in page source) or a clinic inbox. The public phone fallback is 816-343-4883. For true source-level privacy, put the form behind a server-side relay.
 2. **"Free 15-minute consult" and "lab panels from $100."** These came from the partnership model. Confirm with the clinical team before running ads. If the consult is not free, change the hero, header, FAQ, and form heading.
-3. **FormSubmit needs one-time activation.** The **first submission** triggers the activation email to rejuvkc@gmail.com. Check the inbox and spam/quarantine and click the activation link before ads run. Then submit a clearly labeled test lead and confirm Ashley and Tracy receive the CC. If the domain addresses still miss it, verify the mailboxes in Google Workspace admin and allowlist formsubmit.co.
+3. **FormSubmit activation.** The chrishubbel72@gmail.com endpoint is activated and a test CC reached Tracy. Confirm Ashley receives the CC; if she does not, check Google Workspace quarantine and allowlist formsubmit.co. Submit one test from the live page before ads.
 4. **Bourbon offer needs a compliance look.** The gift is tied to booking a consult and starting on a coaching and treatment plan. It is written as 21+, while supplies last, plan enrollment required, ID required at pickup, pickup offsite, not served at the clinic. Have counsel or the clinic's compliance lead review Missouri alcohol-promotion rules before paid promotion. Meta may also restrict alcohol creative; keep ad creative focused on the consult.
 5. **Peptides are not advertised as available.** Your planning sheet says peptides are gated on FDA listings and counsel approval. The page collects interest instead. If they are approved, change the card and the FAQ.
 6. **Branded GLP-1 only.** The page says branded tirzepatide (Zepbound®/Mounjaro®), never compounded. Keep that language unless the clinical team changes the formulary.
@@ -171,7 +171,7 @@ The chat answer bank runs locally in the browser. The only network request from 
 
 ## Known follow-ups
 
-- Activate FormSubmit via the rejuvkc@gmail.com inbox, then submit one test lead and confirm Ashley and Tracy receive the CC.
+- Confirm Ashley receives the CC and complete any activation she received. Replace the temporary chrishubbel72@gmail.com form endpoint with the FormSubmit privacy alias or a clinic inbox.
 - If Ashley/Tracy still miss FormSubmit mail, check Google Workspace quarantine, verify the addresses, and allowlist formsubmit.co; consider a leads@rejuv-kc.com group.
 - For true source-level privacy, move the form behind a server-side relay or replace the endpoints with FormSubmit privacy aliases from the activation emails.
 - Add the clinic's public phone when available (the clinic site lists 816-343-4883).
