@@ -1917,7 +1917,8 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
       .replace(/\s+/g, " ").trim();
   }
 
-  var XAI_VOICE_URL = "https://limenhelix.com/api/orb-voice?voice=zenith&text=";
+  /* sal is xAI's original core "medicine" voice; <slow> is an xAI-native speech tag. */
+  var XAI_VOICE_URL = "https://limenhelix.com/api/orb-voice?voice=sal&text=";
   var xaiAudio = null;
 
   function stopVoice() {
@@ -1925,25 +1926,26 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
     if (xaiAudio) { try { xaiAudio.pause(); } catch (e) {} xaiAudio = null; }
   }
 
-  function speakBrowser(clean) {
+  function speakBrowser(clean, urgent) {
     if (muted || !("speechSynthesis" in window)) return;
     var u = new SpeechSynthesisUtterance(clean);
     if (voice) u.voice = voice;
-    u.pitch = 0.85;
-    u.rate = 1.04;
+    u.pitch = 0.88;
+    u.rate = urgent ? 1.05 : 0.95;
     speechSynthesis.speak(u);
   }
 
-  function speak(text) {
+  function speak(text, urgent) {
     if (muted) return;
     stopVoice();
     var clean = cleanForSpeech(text);
-    if (clean.length > 1300) clean = clean.slice(0, 1300);
+    if (clean.length > 1280) clean = clean.slice(0, 1280);
+    var ttsText = urgent ? clean : "<slow>" + clean + "</slow>";
     if ("speechSynthesis" in window) speechSynthesis.resume();
-    xaiAudio = new Audio(XAI_VOICE_URL + encodeURIComponent(clean));
-    xaiAudio.onerror = function () { xaiAudio = null; speakBrowser(clean); };
+    xaiAudio = new Audio(XAI_VOICE_URL + encodeURIComponent(ttsText));
+    xaiAudio.onerror = function () { xaiAudio = null; speakBrowser(clean, urgent); };
     var p = xaiAudio.play();
-    if (p && p.catch) p.catch(function () { if (xaiAudio) { xaiAudio = null; speakBrowser(clean); } });
+    if (p && p.catch) p.catch(function () { if (xaiAudio) { xaiAudio = null; speakBrowser(clean, urgent); } });
   }
 
   /* UI */
@@ -2006,7 +2008,7 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
     d.textContent = text;
     log.appendChild(d);
     log.scrollTop = log.scrollHeight;
-    if (cls === "testo-bot") speak(text);
+    if (cls === "testo-bot") speak(text, /911|988/.test(text));
   }
 
   function ask(q) {
