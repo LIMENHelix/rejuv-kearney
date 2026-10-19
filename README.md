@@ -24,6 +24,7 @@ This is a single static page. No build step, no framework, no server. It can be 
 - Main lead form with interest pills, Zoom/in-person preference, consent, UTM/fbclid capture
 - Privacy note, offer terms, medical disclaimers, 988/911 crisis language
 - Sticky mobile callback + book bar
+- **Testo AI concierge** at the bottom right: Kearney local color, TRT, labs, weight loss, ED, peptides, PRP, longevity, coaching, first responders, military, dads, The 645 Club, basketball, football, "man stuff," pricing, insurance, and booking. It has quick prompts, a book-consult button, a clinic call button, voice on/off, and a built-in educational-only disclaimer.
 - `noindex` soft-launch tag (remove when ready for search traffic)
 
 ---
@@ -105,6 +106,28 @@ Everything is in `index.html`: markup, CSS, and JavaScript. There is no build st
 - Form recipients: primary in the two `<form action="https://formsubmit.co/...">` attributes; the CC is the hidden `_cc` input. Both are entity-encoded so they do not render as plain addresses.
 - Interest values: the `data-interest` attributes on service cards and the checkbox values must match exactly.
 - The "Founding 100" copy and terms: search for `Founding 100` and `Offer terms`.
+- Testo knowledge: search for `var BRAIN` in `index.html`. Each entry is `{k:["keyword","another keyword"], a:"answer"}`. The matcher checks entries in order, so keep safety and specific topics near the top and broad topics lower. Add a `j:true` entry for jokes.
+- Testo voice: `XAI_VOICE_URL` uses the same xAI `orb-voice` endpoint as the ReJuv site, with browser `speechSynthesis` as the fallback. The mute state is stored under `rejuvKearneyTestoMuted`.
+- Testo phone button: search for `8163434883` (the clinic's public line).
+
+---
+
+## Testo AI concierge
+
+Testo is the floating assistant at the bottom right of the page. It is the same pattern as the ReJuv site's Testo: a local keyword-driven answer bank in the page, plus the clinic's xAI voice endpoint for spoken replies and a browser speech fallback.
+
+**What it knows:** Kearney and the Northland, TRT and testosterone labs, full panels, medical weight loss and branded tirzepatide, ED medications, peptides (interest list only), PRP, longevity, performance, telehealth coaching, men's groups, first responders, military/veterans, divorced dads, dads and family days, The 645 Club, 3v3 basketball, football watch nights, men's trips and "man stuff," the Founding 100 bourbon offer, pricing, insurance/HSA/FSA, privacy, hours, partners, and booking.
+
+**Guardrails baked into the answer bank:**
+- No dosing, diagnosis, prescribing, or guarantees. Those answers redirect to a licensed provider after labs.
+- Emergency answers say **call 911**; mental-health crisis answers say **call or text 988**.
+- Peptides are described as not available at launch, with an interest list.
+- Weight loss is branded tirzepatide only; no compounded tirzepatide.
+- No grey-market compounds or sourcing.
+- It does not reveal staff emails; contact questions route to the form or the clinic's public line.
+- The panel footer repeats: educational only, not medical advice; prescriptions require a provider evaluation.
+
+The chat answer bank runs locally in the browser. The only network request from Testo is the bot's reply text to the xAI voice endpoint (and the audio response); user questions are not sent to an LLM. Keep it that way unless a HIPAA-reviewed backend is added.
 
 ---
 
@@ -113,7 +136,7 @@ Everything is in `index.html`: markup, CSS, and JavaScript. There is no build st
 - Palette: deep slate/ink, gold `#C5A359` / `#B09243`, cream `#EFEBE1`, terracotta accent used sparingly.
 - The lion image and brand system come from the existing ReJuv partnership page and the Heartland Men's Health brand spec.
 - The page is intentionally a premium private-clinic look, not a generic medical-blue template.
-- All content is static; there are no third-party scripts except Google Fonts (and the optional Meta Pixel once you add it).
+- All content is static. The only third-party requests are Google Fonts, the optional Meta Pixel (once you add it), and the xAI voice endpoint used by Testo (bot reply text only; the answer bank runs locally).
 
 ---
 
@@ -131,6 +154,15 @@ Everything is in `index.html`: markup, CSS, and JavaScript. There is no build st
   - mobile sticky bar visible
   - mobile menu opens
   - mobile headline visible
+- 18/18 Testo checks passed:
+  - panel opens, greeting and quick prompts render
+  - TRT, labs, weight loss, ED, peptides, PRP, longevity, coaching, first responders, military, dads, 645 Club, basketball, football, Kearney, pricing, insurance, privacy, hours, partner, and refill answers
+  - emergency and crisis routing (911/988)
+  - risk questions ("Does TRT cause a heart attack?") do **not** trigger the emergency answer
+  - explicit dosing/prescribing questions redirect to a provider
+  - book button closes the panel, scrolls to the form, and preselects "Not sure yet"
+  - mobile panel sits above the sticky action bar with no horizontal overflow
+  - voice request returns `200 audio/mpeg` from the xAI endpoint
 - The forms were tested with **network interception**, so no test leads were sent to the real inbox.
 
 ---
@@ -141,6 +173,8 @@ Everything is in `index.html`: markup, CSS, and JavaScript. There is no build st
 - For true source-level privacy, move the form behind a server-side relay or replace the endpoints with FormSubmit privacy aliases from the activation emails.
 - Add the clinic's public phone when available (the clinic site lists 816-343-4883).
 - Confirm consult/lab pricing.
+- Have the clinical team review Testo's answer bank, especially TRT, weight loss, ED, peptides, and pricing claims.
+- Test Testo's voice and mute on the live site after the Pages rebuild.
 - Have counsel review the alcohol offer before paid promotion.
 - Add the Meta Pixel and UTM-tagged ad URLs.
 - Remove `noindex` at official launch.

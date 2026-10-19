@@ -677,6 +677,73 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
   .reveal{animation:none}
 }
 </style>
+<style>
+/* ---------- Testo AI concierge ---------- */
+.testo-fab{
+  position:fixed;right:18px;bottom:18px;z-index:70;
+  display:inline-flex;align-items:center;gap:9px;
+  min-height:48px;padding:0 18px;border-radius:999px;
+  background:linear-gradient(135deg,#121D23,#1B2A32);
+  color:var(--text);border:1px solid rgba(197,163,89,.65);
+  font-family:var(--font-ui);font-size:.74rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  box-shadow:0 12px 30px rgba(0,0,0,.45);
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.testo-fab:hover{border-color:var(--gold-bright);transform:translateY(-2px);box-shadow:0 16px 36px rgba(0,0,0,.5)}
+.testo-fab svg{width:17px;height:17px;color:var(--gold);flex:none}
+.testo-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(197,163,89,.15);flex:none}
+.testo-panel{
+  position:fixed;right:18px;bottom:78px;z-index:70;
+  width:min(390px,calc(100vw - 36px));height:min(560px,72vh);
+  background:rgba(14,22,27,.98);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  border:1px solid rgba(197,163,89,.42);border-radius:14px;
+  display:none;flex-direction:column;overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.6);color:var(--text);
+}
+.testo-panel.open{display:flex}
+.testo-head{position:relative;padding:14px 48px 13px 16px;border-bottom:1px solid var(--line-soft);background:linear-gradient(180deg,rgba(197,163,89,.08),transparent)}
+.testo-head strong{display:flex;align-items:center;gap:8px;font-family:var(--font-head);font-size:1.12rem;font-weight:800;line-height:1;color:var(--text)}
+.testo-head span{display:block;font-size:.68rem;line-height:1.4;color:var(--muted);margin-top:5px}
+.testo-mute,.testo-close{
+  position:absolute;top:9px;width:30px;height:30px;border:1px solid transparent;border-radius:50%;
+  background:none;color:var(--muted);font-size:15px;line-height:1;cursor:pointer;
+}
+.testo-mute{right:42px}
+.testo-close{right:8px;font-size:20px}
+.testo-mute:hover,.testo-close:hover{color:var(--gold-bright);border-color:var(--line)}
+.testo-log{flex:1;overflow-y:auto;padding:14px 14px 8px;display:flex;flex-direction:column;gap:8px;scrollbar-width:thin;scrollbar-color:rgba(197,163,89,.4) transparent}
+.testo-msg{max-width:90%;padding:9px 12px;border-radius:12px;font-size:.82rem;line-height:1.5;overflow-wrap:anywhere}
+.testo-bot{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.09);align-self:flex-start;color:#E8E5DC;border-bottom-left-radius:3px}
+.testo-user{background:var(--gold);align-self:flex-end;color:#11181C;font-weight:600;border-bottom-right-radius:3px}
+.testo-typing{display:flex;gap:4px;align-items:center;padding:10px 12px}
+.testo-typing i{width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.5;animation:testoPulse 1s infinite}
+.testo-typing i:nth-child(2){animation-delay:.15s}
+.testo-typing i:nth-child(3){animation-delay:.3s}
+@keyframes testoPulse{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-2px)}}
+.testo-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px}
+.testo-chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#C9D0D0;font-family:var(--font-ui);font-size:.64rem;font-weight:600;line-height:1.2;padding:6px 9px;border-radius:999px;cursor:pointer;transition:color .2s,border-color .2s}
+.testo-chip:hover{color:var(--text);border-color:rgba(197,163,89,.6)}
+.testo-actions{display:flex;gap:8px;padding:8px 14px 0}
+.testo-book{flex:1;min-height:40px;border:0;border-radius:6px;background:var(--gold);color:#11181C;font-family:var(--font-ui);font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.testo-book:hover{background:var(--gold-bright)}
+.testo-call{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:0 12px;border:1px solid rgba(255,255,255,.18);border-radius:6px;color:var(--text);font-family:var(--font-ui);font-size:.62rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.testo-call:hover{border-color:var(--gold);color:var(--gold-bright)}
+.testo-call svg{width:14px;height:14px;color:var(--gold)}
+.testo-disclaimer{padding:7px 14px 10px;font-size:.6rem;line-height:1.45;color:#7F8B90;border-top:1px solid var(--line-soft);margin-top:8px}
+.testo-inrow{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line-soft);background:rgba(255,255,255,.02)}
+.testo-inrow input{flex:1;min-width:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:8px;color:var(--text);padding:9px 11px;font-size:.82rem}
+.testo-inrow input::placeholder{color:#7F8B90}
+.testo-inrow input:focus{outline:2px solid var(--gold);outline-offset:0;border-color:var(--gold)}
+.testo-inrow button{background:var(--gold);border:0;color:#11181C;font-family:var(--font-ui);font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:8px;padding:0 14px;cursor:pointer;flex:none}
+.testo-inrow button:hover{background:var(--gold-bright)}
+@media(max-width:720px){
+  .testo-fab{right:12px;bottom:84px;min-height:44px;padding:0 14px;font-size:.66rem}
+  .testo-panel{right:10px;left:10px;bottom:146px;width:auto;height:min(520px,62vh);max-height:62vh}
+}
+@media(prefers-reduced-motion:reduce){.testo-typing i{animation:none}}
+</style>
 </head>
 <body>
 
@@ -1626,5 +1693,326 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
   fbq('track', 'PageView');
   </script>
 -->
+<script>
+/* ---------- Testo: Kearney men's health concierge ---------- */
+(function () {
+  "use strict";
+
+  var BRAIN = [
+    /* Safety first */
+    {k:[" 911 "," emergency "," chest pain "," having a heart attack "," cant breathe "," having a stroke "," stroke symptoms "," overdose "," suicide "," suicidal "," kill myself "," self harm "," hurt myself ","in crisis"," severe bleeding "], a:"If this is a medical emergency, call 911 now. If you are in mental-health crisis, call or text 988. I am an educational concierge, not emergency care."},
+
+    /* Money and access */
+    {k:["cost","price","pricing","how much is","how much does","fee","fees","financing","afford","payment","pay for","free consult","payment plan","discount"], a:"The 15-minute consult is free. Lab panels start at $100. If you and your provider decide on treatment, you get the plan and the price in writing before you commit. Cash-pay, HSA/FSA accepted, and financing is available. Ask the team about current offers."},
+    {k:["insurance","hsa","fsa","reimburse","claim","covered","coverage","medicare","medicaid","blue cross","bcbs","aetna","cigna","united healthcare"], a:"We do not bill insurance. HSA and FSA cards are accepted, and we provide documentation you can submit to your insurer. Ask about financing before you commit."},
+
+    /* Basics */
+    {k:[" hello "," hi "," hey "," yo "," sup "," good morning "," good afternoon "], a:"Testo here, Kearney's men's health concierge. Ask me about TRT, labs, weight loss, ED, peptides, The 645 Club, basketball, football, or what to expect at your first visit. I will keep it straight and point you to a real provider when it matters."},
+    {k:["who is testo","what is testo","are you a doctor","are you real","are you ai","what can you do","who are you","your name"], a:"I am Testo, the AI concierge for Rejuv Men's Health + Wellness in Kearney. I know the clinic menu, The 645 Club, and enough local color to be dangerous. I do not diagnose or prescribe. That is for the licensed providers."},
+    {k:["grand opening","soft launch","new clinic"," opening ","real clinic"], a:"We are open now in a soft launch. No big grand opening yet. The Founding 100 is the quiet opening. Book a consult and you are in before the crowd."},
+
+    /* Founding offer */
+    {k:["founding 100","founding100","fifth","bourbon offer","free bourbon","first 100"], a:"The first 100 men who book a consult are Founding 100. After your visit, you can pick up a complimentary fifth of bourbon. 21+, while supplies last, no purchase necessary, ID required at pickup. Pickup is offsite; alcohol is not served at the clinic. Please drink responsibly."},
+
+    /* Booking and location */
+    {k:["book","appointment","consult","schedule","zoom","get started","sign up","availability","walk in"], a:"Start with the free 15-minute consult. Use the form on this page, Zoom or in person, and the team will text you within one business day. Bring your questions. No pressure and no hard sell."},
+    {k:["kearney basketball","kearney football","kearney club","kearney events","local basketball","local football"], a:"Kearney and The 645 Club go together: 3v3 basketball, football watch nights, group workouts, and men's trips, all from our 645 State Rte 92 home base. Dates go to the event list first. Want in?"},
+    {k:["address","location","where are you","directions","parking","kearney","route 92","state rte 92","state route 92"], a:"We are at 645 State Rte 92 in Kearney, Missouri, about 15 minutes from Liberty and 20 to 25 from Smithville, with quick access to I-35. It is Bulldogs country, with Jesse James history and a growing downtown. The clinic is by appointment. The public line is 816-343-4883 if you need help finding the suite."},
+    {k:["jesse james","bulldogs","downtown","i 35","i35","liberty","smithville","excelsior","northland","clay county"], a:"Kearney is a Northland town in Clay County: Bulldogs Fridays, Jesse James history, a growing downtown, and quick access to I-35, Liberty, Smithville, and Excelsior Springs. We are at 645 State Rte 92, close enough to make the drive easy."},
+
+    /* Clinical menu */
+    {k:["hair loss","lose my hair","hair thinning","bald"], a:"TRT can affect hair in some men. A provider will review your history and risks. Hair-loss treatment is not in our launch menu, but we will point you in the right direction."},
+    {k:["fertility","sperm","sterile","pregnant","conceive","affect kids","have kids"], a:"TRT can affect fertility. If fertility is on your mind, tell your provider before starting. There are options to discuss. This is exactly the kind of thing to bring to a consult, not guess about."},
+    {k:["hgh","human growth hormone","growth hormone","somatropin"], a:"HGH is not in our launch menu. We are not going to sell you a grey-market vial. If that changes, we will announce it with a real provider and real labs."},
+    {k:["peptide","peptides","bpc","sermorelin","ipamorelin","ghk","tb 500","thymosin"], a:"Peptides are not part of our launch menu. We are waiting on FDA listings and legal approval before we offer them. We do not sell grey-market compounds. Join the interest list and we will tell you when that changes."},
+    {k:["normal testosterone","testosterone level","what is a normal"], a:"Lab ranges vary, and symptoms matter as much as the number. Your provider will interpret total and free testosterone alongside your history, not against a random internet chart."},
+    {k:["chatgpt","grok","xai","openai","llm","what ai"], a:"I am Testo, the clinic's concierge. The voice runs on the same xAI setup as the ReJuv site; the answers here are built for Kearney men's health. I do not diagnose or prescribe."},
+    {k:["trt","testosterone","low t","low testosterone","hormone","andropause","libido","fatigue"," tired "," energy "], a:"TRT starts with labs and a provider evaluation: total and free testosterone, PSA, hematocrit, and the rest of the panel. If treatment is appropriate, we use provider-managed testosterone with regular monitoring. It is not a guarantee and not for everyone. We will tell you straight."},
+    {k:["lab","labs","blood work","bloodwork","panel","psa","a1c","hematocrit","cholesterol","vitamin d","blood test"], a:"Full panels include CBC, CMP, lipids, A1c, thyroid, PSA, vitamin D, testosterone, and more. Lab panels start at $100. Your provider reviews the numbers and builds the plan. No mystery results."},
+    {k:["weight loss","lose weight","glp","tirzepatide","zepbound","mounjaro","ozempic","semaglutide","fat loss","belly fat"], a:"Medical weight loss is built around your labs and lifestyle. Our launch menu uses branded tirzepatide, Zepbound or Mounjaro, only. Never compounded, and only when it is clinically appropriate. Nutrition, training, and coaching support the plan. A provider will review whether it is a fit."},
+    {k:[" ed ","erectile","erection","tadalafil","sildenafil","viagra","cialis","sexual health","performance anxiety"], a:"ED care is a private conversation with real options, including sildenafil and tadalafil when prescribed. It requires a provider evaluation. No online quiz and no guarantees. Discreet, no awkward waiting room."},
+    {k:["prp","platelet","joint","knee","shoulder"," hip ","injury","arthritis"], a:"PRP is a provider-administered, cash-pay add-on for knees, shoulders, and hips. It is a non-surgical option worth discussing with your provider, not a guarantee. Ask about it at your consult."},
+    {k:["longevity","healthspan","apob","hscrp"," aging ","biohack","biohacking"], a:"Longevity here means measuring what matters: ApoB, A1c, hsCRP, hormones, body composition, and grip strength. Quarterly deep panels and a provider-reviewed plan. No anti-aging fairy dust, no unapproved compounds."},
+    {k:["muscle","strength","body comp","body composition","training","workout","recovery"], a:"We look at body composition, strength markers, recovery, and the labs underneath. Then we build a plan that fits a grown man's schedule: training, nutrition, sleep, and medication only when appropriate. No bro-science."},
+    {k:["coach","coaching","telehealth","telemedicine","virtual","lifestyle","accountability","nutrition"," sleep "], a:"Telehealth coaching covers testosterone, weight loss, longevity, and lifestyle and accountability. Weekly check-ins, real adjustments, and a coach who asks you about it next week. Zoom or in-app. Labs and provider visits happen in Kearney."},
+
+    /* Men and community */
+    {k:["divorced dad","divorce","single dad","fatherhood","dad life"], a:"Divorced dads: rebuild your health, confidence, and next chapter one measurable step at a time. No shame and no history lesson. The 645 Club and coaching can help with the brotherhood part too."},
+    {k:["mental","depress","anxiety"," stress ","therapy","counsel","grief","lonely","panic"], a:"We offer men's groups and coaching for stress, divorce, fatherhood, and the pressure to hold it all together. That is not therapy and not crisis care. If you are in crisis, call or text 988. If you want the group or coaching path, start with a consult."},
+    {k:["first responder","police","firefighter","fire department"," ems ","paramedic"," cop ","sheriff","law enforcement"], a:"First responders get the full picture: shift work, stress, sleep, and hormones. Ask about our first-responder screening days for police, fire, and EMS. We will build the plan around the job."},
+    {k:["military","veteran","army","navy","marines","air force","deployed","service member"], a:"Military and veterans: you spent years taking care of everyone else. This is your turn. Start with a consult and labs. We will build a plan that holds up."},
+    {k:["father son","father daughter","dad day"," kids ","family"], a:"Father/son and father/daughter days are part of The 645 Club. Train together, eat together, act like kids for an afternoon. Your kids learn by watching you take care of yourself."},
+    {k:["over 35","35+","40+","50+","middle age","getting older"], a:"Energy, strength, libido, and recovery change with age, but normal for your age is not a plan. Get the numbers, then decide what to do. A consult is the starting line."},
+
+    /* The club and the fun */
+    {k:["645 club"," club "," event "," events ","mens group","brotherhood","speaker"], a:"The 645 Club is the social side: father/son and father/daughter days, 3v3 basketball, group workouts, men's trips, watch nights, and speaker nights. Events are separate from your medical record and open to guests. Tap Book a consult and choose 645 Club events to get on the list."},
+    {k:["basketball","3v3","3 on 3","hoops","tournament"," court "], a:"Basketball is a 645 Club staple: 3v3 tournaments, league nights, and group runs. Dates and entry details are announced to the event list first. Screening booth at the door; guests welcome. Want the invite list?"},
+    {k:["football","nfl","chiefs","game day","gameday","watch party","watch night","super bowl","tailgate"], a:"Football is a 645 Club thing: game-day watch nights, a big screen, food, and no meeting agenda. We are in Chiefs country, but we are not an official team event. Just a room full of guys who know what a cover 2 is. Get on the event list for dates."},
+    {k:["men s trip","mens trip"," trip ","fishing","golf","cigar","whiskey","bourbon","grill","truck","hunting","man stuff","guy stuff"], a:"Man stuff is allowed here: bourbon at 21+, cigars offsite, grilling, trucks, fishing, golf, and a training session you will feel on Thursday. The 645 Club turns that into trips, watch nights, and workouts. No bro-toxicity. Just a good room."},
+
+    /* Practical */
+    {k:["privacy","private","confidential","hipaa","records","discreet","sell my"], a:"Private rooms, discreet communication, and no waiting-room gossip. We do not sell your information. This chat is educational. Do not share medical details here. We collect those securely during intake."},
+    {k:["hours"," open "," close ","when are you"], a:"The clinic is by appointment, and the team confirms your time when they reach out. The public line is 816-343-4883 if you need to ask about the schedule."},
+    {k:["phone"," call "," text ","contact","email","reach you"], a:"The clinic's public line is 816-343-4883. You can also use the form on this page and the team will text you within one business day. I do not give out staff emails."},
+    {k:["partner","trainer","chiropractor","chiro","physical therapist"," pt ","referral","gym owner","gym partner"], a:"We partner with trainers, gyms, chiropractors, PTs, barbers, first-responder groups, and local businesses. Co-host an event, offer screening vouchers, or join an education night. Flat co-marketing only, no per-referral payments. Use the partner form on this page."},
+    {k:["age limit","how old","minimum age","women","female","wife","girlfriend","spouse"], a:"This clinic is for adult men. Rejuv's aesthetics and wellness team handles other services. If you are asking about bringing your wife or partner to your visit, she is welcome."},
+    {k:["bring","first visit","what to expect","prepare"], a:"Bring a photo ID, a list of medications, and your questions. Bring your partner if you want. The first visit is a conversation and a plan, not a lecture."},
+    {k:["aesthetics","med spa","botox","filler","facial","laser","iv therapy"], a:"Rejuv Men's Health + Wellness is the men's health side of Rejuv. The aesthetics and wellness team handles Botox, fillers, and other services. This page is focused on men's health."},
+
+    {k:["doctor","provider","nurse practitioner"," np ","physician","clinician"], a:"The clinical team includes a nurse practitioner and an ER physician. A licensed provider reviews your labs, answers your questions, and decides whether treatment is appropriate. I handle the tour, not the diagnosis."},
+    {k:["refill","renew my prescription","renewal"], a:"For a refill or renewal, call the clinic at 816-343-4883. If you are new, book a consult first. I cannot change or renew prescriptions from chat."},
+
+    /* Explicit medical-advice guardrail */
+    {k:[" dose "," dosage "," should i take "," prescribe me "," write me a script "," give me a prescription "," diagnose "," cure "," steroid "," steroids "," anabolic "," buy online "," grey market "," gray market "," source "," inject "," cycle "], a:"That is a provider decision, not a chatbot one. Testo can explain the menu, but dosing, diagnosis, and prescriptions require a licensed provider after labs and an evaluation. Book a consult and we will do it properly."},
+
+    {k:["thank","thanks","appreciate"], a:"Anytime. If you want the next step, hit Book a consult. Fifteen minutes, no pressure. If you just came for the jokes, I respect it."},
+    {k:["bye","goodbye","see you"," later "], a:"Catch you later. Lift something heavy, drink some water, and get your labs checked. Lion out."},
+    {k:["joke","funny","make me laugh","dad joke"], j:true}
+  ];
+
+  var FALLBACK = [
+    "I am best on Kearney, TRT, labs, weight loss, ED, peptides, The 645 Club, basketball, football, and how to book. Try one of those, or tap Book a consult and talk to a human with an actual license.",
+    "That is outside my lane. I can explain the clinic menu, The 645 Club, or what to expect at your first visit. For anything clinical, a provider needs to see you.",
+    "I am a concierge, not a search engine. Ask me about TRT, labs, weight loss, ED, peptides, the club, or Kearney. I will give you the straight version."
+  ];
+
+  var JOKES = [
+    "My medical degree is from the University of Google. That is exactly why I keep pointing you to a real provider.",
+    "TRT will not fix your golf swing. I checked. Twice.",
+    "The 3v3 tournament has a screening booth at the door. First time a free throw has ever led to a blood pressure cuff.",
+    "Football watch nights: the only huddle where nobody asks you to run a route.",
+    "I told my buddy I was getting my labs drawn. He thought I was getting a tattoo. Same pain, better data.",
+    "Bourbon is 21+. So is the advice to drink water.",
+    "What do you call a man who finally gets his labs checked? Informed. That is the joke."
+  ];
+
+  var fb = 0, jk = 0;
+
+  function normalize(q) {
+    return " " + String(q).toLowerCase()
+      .replace(/[‘’']/g, "")
+      .replace(/[^a-z0-9\s$]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim() + " ";
+  }
+
+  function answer(q) {
+    var n = normalize(q);
+    for (var i = 0; i < BRAIN.length; i++) {
+      var keys = BRAIN[i].k;
+      for (var j = 0; j < keys.length; j++) {
+        if (n.indexOf(keys[j]) >= 0) {
+          return BRAIN[i].j ? JOKES[(jk++) % JOKES.length] : BRAIN[i].a;
+        }
+      }
+    }
+    return FALLBACK[(fb++) % FALLBACK.length];
+  }
+
+  /* Voice: same xAI orb voice used on the ReJuv site, with a browser fallback. */
+  var muted = false;
+  try { muted = localStorage.getItem("rejuvKearneyTestoMuted") === "1"; } catch (e) {}
+  var voice = null;
+  function pickVoice() {
+    if (!("speechSynthesis" in window)) return;
+    var voices = speechSynthesis.getVoices().filter(function (v) { return v.lang.indexOf("en") === 0; });
+    var prefs = ["Microsoft Guy", "Microsoft David", "Google US English", "Alex", "Daniel", "Fred", "Male", "en-US"];
+    for (var i = 0; i < prefs.length; i++) {
+      for (var j = 0; j < voices.length; j++) {
+        if (voices[j].name.indexOf(prefs[i]) >= 0) { voice = voices[j]; return; }
+      }
+    }
+    voice = voices[0] || null;
+  }
+  if ("speechSynthesis" in window) {
+    pickVoice();
+    speechSynthesis.onvoiceschanged = pickVoice;
+  }
+
+  function cleanForSpeech(t) {
+    return String(t)
+      .replace(/\$(\d+(?:\.\d+)?)K\b/g, "$1 thousand dollars")
+      .replace(/\$(\d+(?:\.\d+)?)M\b/g, "$1 million dollars")
+      .replace(/\$(\d+(?:\.\d+)?)/g, "$1 dollars")
+      .replace(/(\d+(?:\.\d+)?)K\b/g, "$1 thousand")
+      .replace(/[—–]/g, ", ").replace(/→/g, " then ").replace(/&/g, " and ")
+      .replace(/≤/g, " or less ").replace(/≥/g, " or more ")
+      .replace(/~/g, "about ").replace(/·/g, ",").replace(/\//g, " ")
+      .replace(/\s+/g, " ").trim();
+  }
+
+  var XAI_VOICE_URL = "https://limenhelix.com/api/orb-voice?voice=zenith&text=";
+  var xaiAudio = null;
+
+  function stopVoice() {
+    if ("speechSynthesis" in window) speechSynthesis.cancel();
+    if (xaiAudio) { try { xaiAudio.pause(); } catch (e) {} xaiAudio = null; }
+  }
+
+  function speakBrowser(clean) {
+    if (muted || !("speechSynthesis" in window)) return;
+    var u = new SpeechSynthesisUtterance(clean);
+    if (voice) u.voice = voice;
+    u.pitch = 0.85;
+    u.rate = 1.04;
+    speechSynthesis.speak(u);
+  }
+
+  function speak(text) {
+    if (muted) return;
+    stopVoice();
+    var clean = cleanForSpeech(text);
+    if (clean.length > 1300) clean = clean.slice(0, 1300);
+    if ("speechSynthesis" in window) speechSynthesis.resume();
+    xaiAudio = new Audio(XAI_VOICE_URL + encodeURIComponent(clean));
+    xaiAudio.onerror = function () { xaiAudio = null; speakBrowser(clean); };
+    var p = xaiAudio.play();
+    if (p && p.catch) p.catch(function () { if (xaiAudio) { xaiAudio = null; speakBrowser(clean); } });
+  }
+
+  /* UI */
+  var fab = document.createElement("button");
+  fab.type = "button";
+  fab.className = "testo-fab";
+  fab.setAttribute("aria-expanded", "false");
+  fab.setAttribute("aria-controls", "testoPanel");
+  fab.setAttribute("aria-label", "Open Testo, the Rejuv men's health concierge");
+  fab.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Ask Testo</span><span class="testo-dot" aria-hidden="true"></span>';
+
+  var panel = document.createElement("div");
+  panel.id = "testoPanel";
+  panel.className = "testo-panel";
+  panel.setAttribute("role", "dialog");
+  panel.setAttribute("aria-label", "Testo, the Rejuv men's health concierge");
+  panel.innerHTML =
+    '<div class="testo-head">' +
+      '<strong><span class="testo-dot" aria-hidden="true"></span>Testo</strong>' +
+      '<span>Kearney men&rsquo;s health concierge &middot; educational only</span>' +
+      '<button class="testo-mute" type="button" aria-label="Toggle voice" title="Voice on or off">&#128266;</button>' +
+      '<button class="testo-close" type="button" aria-label="Close chat" title="Close">&times;</button>' +
+    '</div>' +
+    '<div class="testo-log" role="log" aria-live="polite" aria-relevant="additions"></div>' +
+    '<div class="testo-chips"></div>' +
+    '<div class="testo-actions">' +
+      '<button class="testo-book" type="button">Book a consult</button>' +
+      '<a class="testo-call" href="tel:+18163434883"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Call</a>' +
+    '</div>' +
+    '<div class="testo-disclaimer">Educational only, not medical advice. Prescriptions require a provider evaluation. Emergency: 911 &middot; Crisis: 988.</div>' +
+    '<div class="testo-inrow">' +
+      '<input type="text" placeholder="Ask Testo about TRT, events, or Kearney&hellip;" aria-label="Ask Testo a question" autocomplete="off">' +
+      '<button type="button">Ask</button>' +
+    '</div>';
+
+  document.body.appendChild(fab);
+  document.body.appendChild(panel);
+
+  var log = panel.querySelector(".testo-log");
+  var input = panel.querySelector(".testo-inrow input");
+  var askBtn = panel.querySelector(".testo-inrow button");
+  var chips = panel.querySelector(".testo-chips");
+  var muteBtn = panel.querySelector(".testo-mute");
+  var closeBtn = panel.querySelector(".testo-close");
+  var bookBtn = panel.querySelector(".testo-book");
+  var greeted = false;
+
+  muteBtn.textContent = muted ? "🔇" : "🔊";
+  muteBtn.addEventListener("click", function (ev) {
+    ev.stopPropagation();
+    muted = !muted;
+    muteBtn.textContent = muted ? "🔇" : "🔊";
+    try { localStorage.setItem("rejuvKearneyTestoMuted", muted ? "1" : "0"); } catch (e) {}
+    if (muted) stopVoice();
+  });
+
+  function add(cls, text) {
+    var d = document.createElement("div");
+    d.className = "testo-msg " + cls;
+    d.textContent = text;
+    log.appendChild(d);
+    log.scrollTop = log.scrollHeight;
+    if (cls === "testo-bot") speak(text);
+  }
+
+  function ask(q) {
+    q = String(q || "").trim();
+    if (!q) return;
+    add("testo-user", q);
+    input.value = "";
+    var typing = document.createElement("div");
+    typing.className = "testo-msg testo-bot testo-typing";
+    typing.innerHTML = "<i></i><i></i><i></i>";
+    log.appendChild(typing);
+    log.scrollTop = log.scrollHeight;
+    window.setTimeout(function () {
+      typing.remove();
+      add("testo-bot", answer(q));
+    }, 420);
+  }
+
+  function openBook() {
+    panel.classList.remove("open");
+    fab.setAttribute("aria-expanded", "false");
+    stopVoice();
+    var box = document.querySelector('input[name="interest"][value="Not sure yet"]');
+    if (box) {
+      box.checked = true;
+      var wrap = box.closest(".check");
+      if (wrap) wrap.classList.add("selected");
+    }
+    var target = document.getElementById("book");
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(function () {
+      var name = document.getElementById("leadName");
+      if (name) name.focus({ preventScroll: true });
+    }, 550);
+  }
+
+  bookBtn.addEventListener("click", openBook);
+
+  var promptChips = [
+    "What is TRT?",
+    "Do you offer peptides?",
+    "ED meds?",
+    "Basketball tournaments?",
+    "Football watch nights?",
+    "What's the 645 Club?",
+    "Book a consult"
+  ];
+  promptChips.forEach(function (label) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "testo-chip";
+    b.textContent = label;
+    b.addEventListener("click", function () {
+      if (label === "Book a consult") openBook();
+      else ask(label);
+    });
+    chips.appendChild(b);
+  });
+
+  function closePanel() {
+    panel.classList.remove("open");
+    fab.setAttribute("aria-expanded", "false");
+    stopVoice();
+  }
+
+  fab.addEventListener("click", function () {
+    var opening = !panel.classList.contains("open");
+    panel.classList.toggle("open", opening);
+    fab.setAttribute("aria-expanded", opening ? "true" : "false");
+    if (!opening) { stopVoice(); return; }
+    if (!greeted) {
+      greeted = true;
+      add("testo-bot", "Testo here, Kearney's men's health concierge. Ask me about TRT, labs, weight loss, ED, peptides, The 645 Club, basketball, football, or what to expect at your first visit. I will keep it straight and point you to a real provider when it matters.");
+    }
+    window.setTimeout(function () { input.focus(); }, 120);
+  });
+
+  closeBtn.addEventListener("click", closePanel);
+  panel.addEventListener("keydown", function (ev) { if (ev.key === "Escape") closePanel(); });
+  askBtn.addEventListener("click", function () { ask(input.value); });
+  input.addEventListener("keydown", function (ev) { if (ev.key === "Enter") { ev.preventDefault(); ask(input.value); } });
+})();
+</script>
 </body>
 </html>
