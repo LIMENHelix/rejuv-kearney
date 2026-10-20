@@ -2,16 +2,28 @@
 
 Temporary soft-launch lead-capture site for **Rejuv Men's Health + Wellness**, 645 State Rte 92, Kearney, MO 64060.
 
-**Live URL:** https://limenhelix.github.io/rejuv-kearney/
+**Live root (feedback promo):** https://limenhelix.github.io/rejuv-kearney/
+**Full clinic site:** https://limenhelix.github.io/rejuv-kearney/clinic.html
 
-**Status:** Live on GitHub Pages (public repo, `main` branch, root). Soft-launch `noindex` is active. FormSubmit activation is the remaining one-time step.
+**Status:** Live on GitHub Pages (public repo, `main` branch, root). Soft-launch `noindex` is active. FormSubmit is activated on the chrishubbel72@gmail.com endpoint; a test CC reached Tracy. Confirm Ashley receives the CC.
 
-This is a single static page. No build step, no framework, no server. It can be hosted on GitHub Pages, Netlify, Vercel, or any static host.
+Two static pages, no build step and no server:
+
+- `index.html` — the feedback promo: 3-question anonymous survey, then an optional first-50 members email list.
+- `clinic.html` — the full clinic site (services, coaching, The 645 Club, Testo, Founding 100, lead and partner forms).
 
 ---
 
 ## What is on the page
 
+**Root promo (`index.html`)**
+- In-your-face 60-second survey: would you use a clinic like this, biggest stressor, interest in free activities/support groups
+- No email required for the survey; optional activity checkboxes and open comment
+- On submit, the success panel asks for an email **only** to join the first 50 members list, with a separate consent checkbox
+- A Response ID links the anonymous survey to the optional list email
+- Full clinic site link, clinic phone, privacy note
+
+**Full clinic site (`clinic.html`)**
 - Lion hero + "Stop guessing. Start measuring." positioning
 - Founding 100 offer: book a consult and start on a coaching and treatment plan, then get a 21+ bourbon thank-you (terms included)
 - Service menu: testosterone/hormone care, medical weight loss (branded tirzepatide only), ED/sexual health, full-body labs, muscle/performance, longevity, PRP, and a peptides **interest list** (not a launch service)
@@ -79,21 +91,22 @@ git commit -m "Update landing page"
 git push origin main
 ```
 
-GitHub Pages serves `main` from the repository root. The live URL is:
+GitHub Pages serves `main` from the repository root. The live URLs are:
 
-`https://limenhelix.github.io/rejuv-kearney/`
+- Promo: `https://limenhelix.github.io/rejuv-kearney/`
+- Full clinic site: `https://limenhelix.github.io/rejuv-kearney/clinic.html`
 
-If you move to a custom domain (e.g. `rejuvkearney.com`), add a `CNAME` file and update the canonical/OG URLs near the top of `index.html`.
+To make the full clinic site the root again, copy `clinic.html` to `index.html` and update the canonical/OG URLs. If you move to a custom domain (e.g. `rejuvkearney.com`), add a `CNAME` file and update the canonical/OG URLs in both pages.
 
 ### Remove the soft-launch noindex
 
-Near the top of `index.html`:
+Near the top of both `index.html` and `clinic.html`:
 
 ```html
 <meta name="robots" content="noindex, nofollow">
 ```
 
-Delete that line when you want Google to index the page. Facebook link previews do not depend on it.
+Delete those lines when you want Google to index the pages. Facebook link previews do not depend on it.
 
 ---
 
