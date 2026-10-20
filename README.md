@@ -9,7 +9,7 @@ Temporary soft-launch lead-capture site for **Rejuv Men's Health + Wellness**, 6
 
 Two static pages, no build step and no server:
 
-- `index.html` — the feedback promo: 3-question anonymous survey, then an optional first-50 members email list.
+- `index.html` — the feedback promo: two required clicks (would you use it, biggest stress), a click-what-you'd-use list, and an optional email for the first-50 members list. One submit.
 - `clinic.html` — the full clinic site (services, coaching, The 645 Club, Testo, Founding 100, lead and partner forms).
 
 ---
@@ -18,10 +18,9 @@ Two static pages, no build step and no server:
 
 **Root promo (`index.html`)**
 - Hook: **“We know what men carry.”** Not just treatment: a club, groups, activities, and a place to talk.
-- In-your-face 60-second survey: would you use a clinic like this, biggest stressor, interest in free activities/support groups
-- No email required for the survey; optional activity checkboxes and open comment
-- On submit, the success panel asks for an email **only** to join the first 50 members list, with a separate consent checkbox
-- A Response ID links the anonymous survey to the optional list email
+- One-screen survey: would you use a Kearney men's clinic, click what you'd use, and what causes the most stress
+- No email required; the optional email field is only for the first 50 members list
+- One submit. If an email is provided the hidden `First 50 list` field is set to Yes; if not, it stays No
 - Full clinic site link, clinic phone, privacy note
 
 **Full clinic site (`clinic.html`)**
@@ -170,6 +169,7 @@ The chat answer bank runs locally in the browser. The only network request from 
   - mobile sticky bar visible
   - mobile menu opens
   - mobile headline visible
+- Promo checks: one-submit survey with and without email, First 50 Yes/No, no member form, mobile no overflow; clinic.html loads with Testo.
 - 18/18 Testo checks passed:
   - panel opens, greeting and quick prompts render
   - TRT, labs, weight loss, ED, peptides, PRP, longevity, coaching, first responders, military, dads, 645 Club, basketball, football, Kearney, pricing, insurance, privacy, hours, partner, and refill answers

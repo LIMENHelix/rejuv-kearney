@@ -67,7 +67,8 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
 .promo-hero{position:relative;overflow:hidden;background:var(--ink);min-height:min(660px,82svh);display:flex;align-items:center}
 .hero-art{position:absolute;inset:0 0 0 auto;width:52%;z-index:0;background-color:var(--ink);background-image:url("assets/lions-bg.jpg");background-position:center 28%;background-size:cover;background-repeat:no-repeat}
 .hero-art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,rgba(11,17,21,.96) 12%,rgba(11,17,21,.55) 38%,rgba(11,17,21,.05) 72%,rgba(11,17,21,.18) 100%),linear-gradient(0deg,var(--ink) 0%,transparent 30%)}
-.hero-inner{position:relative;z-index:2;max-width:680px;padding:clamp(64px,9vw,110px) 0}
+.hero-inner{position:relative;z-index:2;width:min(1120px,calc(100% - 40px));max-width:none;margin-inline:auto;padding:clamp(64px,9vw,110px) 0}
+.hero-inner > *{max-width:680px}
 .promo-hero h1{font-size:clamp(2.9rem,6.4vw,5.2rem);line-height:.95;letter-spacing:-.045em;margin:18px 0 0}
 .promo-hero h1 .gold{color:var(--gold);display:block}
 .hero-sub{font-size:clamp(1.05rem,1.5vw,1.22rem);line-height:1.62;color:#D3D8D5;max-width:54ch;margin:22px 0 0}
@@ -136,13 +137,6 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
 .form-success h2{font-size:1.5rem;margin-bottom:8px}
 .form-success p{color:#4E5A60;font-size:.92rem;line-height:1.6;margin:0 auto;max-width:42ch}
 .form-success .btn{margin-top:18px;width:auto}
-.member-form{text-align:left;max-width:430px;margin:18px auto 0;padding-top:16px;border-top:1px solid rgba(33,49,59,.14)}
-.member-form .btn{width:100%;margin-top:10px}
-.member-form .form-note{justify-content:center}
-.member-error{text-align:left}
-.member-joined{display:none;max-width:430px;margin:18px auto 0;padding:14px 16px;background:rgba(197,163,89,.14);border:1px solid rgba(141,110,37,.35);border-radius:8px;color:#3E4A50;font-size:.9rem;line-height:1.5}
-.member-joined.show{display:block}
-.member-joined strong{color:#1A252B}
 @media(max-width:560px){.contact-grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
 
 /* Full site CTA */
@@ -176,18 +170,17 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
   <section class="promo-hero" aria-labelledby="promoTitle">
     <div class="hero-art" role="img" aria-label="A male lion in golden light"></div>
     <div class="container hero-inner">
-      <p class="eyebrow">Kearney men only &middot; 60-second survey</p>
+      <p class="eyebrow">Kearney Men's Clinic &middot; Survey Needed</p>
       <h1 id="promoTitle">We know what men carry.</h1>
-      <p class="hero-sub">You don't have to carry it alone. The stress, the pressure, the stuff you don't say out loud&mdash;this isn't just a clinic. It's a club: groups, activities, a place to talk, and real men's health care when you want it. Tell us what you'd actually use.</p>
+      <p class="hero-sub">You don't have to carry it alone. We're thinking of opening a men's clinic in Kearney&mdash;real health care, a club, groups, activities, and a place to talk. Click what you'd use. 30 seconds.</p>
       <div class="hero-actions">
-        <a class="btn btn-gold" href="#feedback">Tell us what you carry <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn-gold" href="#feedback">Click what you'd use <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <span class="urgency">First 50 men get first access</span>
       </div>
       <div class="hero-micro">
-        <span>3 questions</span>
-        <span>60 seconds</span>
-        <span>Free + anonymous</span>
-        <span>First 50 list</span>
+        <span>2 quick questions</span>
+        <span>30 seconds</span>
+        <span>Email optional</span>
       </div>
     </div>
   </section>
@@ -208,8 +201,8 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
       </aside>
 
       <div class="form-card">
-        <h2>3 questions. 60 seconds. Free.</h2>
-        <p class="form-sub">No email required. Answer anonymously, then join the first 50 members list if you want.</p>
+        <h2>Kearney Men's Clinic &mdash; would you use it?</h2>
+        <p class="form-sub">We're thinking of opening it. Click what you'd use. 30 seconds. No email required.</p>
 
         <form id="feedbackForm" action="https://formsubmit.co/chrishubbel72&#64;gmail.com" method="POST" novalidate>
           <input type="hidden" name="_subject" value="Rejuv Kearney feedback">
@@ -217,8 +210,9 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_cc" value="ashley&#64;rejuv-kc.com,tracy&#64;rejuv-kc.com">
           <input type="hidden" name="_next" value="https://limenhelix.github.io/rejuv-kearney/?feedback=sent#feedback">
-          <input type="hidden" name="Response ID" value="">
+          <input type="hidden" name="_replyto" value="">
           <input type="hidden" name="Source" value="Kearney feedback promo">
+          <input type="hidden" name="First 50 list" value="No">
           <input type="hidden" name="Activities (summary)" value="">
           <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
           <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><input type="hidden" name="fbclid"><input type="hidden" name="landing_page">
@@ -226,8 +220,8 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
           <div class="form-error" role="alert" aria-live="polite"></div>
 
           <div class="q">
-            <p class="q-label">1. If there was a men's group/clinic that addressed health and wellness through weight loss, testosterone and peptides, activities, and men's support groups, would you use it? <span class="req">*</span></p>
-            <div class="choices" role="radiogroup" aria-label="Would you use it?">
+            <p class="q-label">Would you use a Kearney men's clinic?&nbsp;<span class="req">*</span></p>
+            <div class="choices" role="radiogroup" aria-label="Would you use a Kearney men's clinic?">
               <label class="choice"><input type="radio" name="Q1 Use clinic" value="Yes" required> Yes</label>
               <label class="choice"><input type="radio" name="Q1 Use clinic" value="Maybe"> Maybe</label>
               <label class="choice"><input type="radio" name="Q1 Use clinic" value="No"> No</label>
@@ -235,7 +229,24 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
           </div>
 
           <div class="q">
-            <p class="q-label">2. As a man, what currently causes you the most stress? <span class="req">*</span></p>
+            <p class="q-label">Click what you'd use. <span class="opt">(select any)</span></p>
+            <div class="choices">
+              <label class="choice"><input type="checkbox" name="Would use" value="Weight loss"> Weight loss</label>
+              <label class="choice"><input type="checkbox" name="Would use" value="Testosterone / TRT"> Testosterone / TRT</label>
+              <label class="choice"><input type="checkbox" name="Would use" value="Peptides"> Peptides</label>
+              <label class="choice"><input type="checkbox" name="Would use" value="Full labs"> Full labs</label>
+              <label class="choice"><input type="checkbox" name="Would use" value="ED treatment"> ED treatment</label>
+              <label class="choice"><input type="checkbox" name="Would use" value="Basketball / watch parties"> Basketball / watch parties</label>
+              <label class="choice"><input type="checkbox" name="Would use" value="Father/son or father/daughter"> Father/son or father/daughter</label>
+              <label class="choice"><input type="checkbox" name="Would use" value="Divorced dads group"> Divorced dads group</label>
+              <label class="choice"><input type="checkbox" name="Would use" value="Hiking / group outings"> Hiking / group outings</label>
+              <label class="choice"><input type="checkbox" name="Would use" value="Men's support group"> Men's support group</label>
+              <label class="choice"><input type="checkbox" name="Would use" value="Couples nights"> Couples nights</label>
+            </div>
+          </div>
+
+          <div class="q">
+            <p class="q-label">What causes you the most stress?&nbsp;<span class="req">*</span></p>
             <div class="choices" role="radiogroup" aria-label="Biggest stressor">
               <label class="choice"><input type="radio" name="Q2 Biggest stressor" value="Work and responsibilities" required> Work and responsibilities</label>
               <label class="choice"><input type="radio" name="Q2 Biggest stressor" value="Marriage"> Marriage</label>
@@ -252,67 +263,22 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
           </div>
 
           <div class="q">
-            <p class="q-label">3. If a men's health location offered free activities and get-togethers with similar men going through the same issues&mdash;father/son activities, father/daughter activities, divorced dads groups, hiking trips, watch parties, etc.&mdash;would you be interested? <span class="req">*</span></p>
-            <div class="choices" role="radiogroup" aria-label="Interested in activities?">
-              <label class="choice"><input type="radio" name="Q3 Activities interest" value="Yes" required> Yes</label>
-              <label class="choice"><input type="radio" name="Q3 Activities interest" value="Maybe"> Maybe</label>
-              <label class="choice"><input type="radio" name="Q3 Activities interest" value="No"> No</label>
-            </div>
-          </div>
-
-          <div class="q">
-            <p class="q-label">Which activities would interest you? <span class="opt">(optional, select any)</span></p>
-            <div class="choices">
-              <label class="choice"><input type="checkbox" name="Activities" value="Father/son activities"> Father/son</label>
-              <label class="choice"><input type="checkbox" name="Activities" value="Father/daughter activities"> Father/daughter</label>
-              <label class="choice"><input type="checkbox" name="Activities" value="Divorced dads group"> Divorced dads group</label>
-              <label class="choice"><input type="checkbox" name="Activities" value="Hiking trips"> Hiking trips</label>
-              <label class="choice"><input type="checkbox" name="Activities" value="Watch parties"> Watch parties</label>
-              <label class="choice"><input type="checkbox" name="Activities" value="Basketball"> Basketball</label>
-              <label class="choice"><input type="checkbox" name="Activities" value="Men's support group"> Men's support group</label>
-              <label class="choice"><input type="checkbox" name="Activities" value="Weight loss group"> Weight loss group</label>
-              <label class="choice"><input type="checkbox" name="Activities" value="Military group"> Military group</label>
-              <label class="choice"><input type="checkbox" name="Activities" value="Couples nights"> Couples nights</label>
-            </div>
-          </div>
-
-          <div class="q">
+            <p class="q-label">Want first access? <span class="opt">(optional)</span></p>
             <div class="field">
-              <label for="fbMessage">Anything else we should know? <span class="opt">(optional)</span></label>
-              <textarea id="fbMessage" name="Anything else" placeholder="What would make you most likely to join?"></textarea>
+              <label for="fbEmail">Email</label>
+              <input id="fbEmail" name="Email" type="email" placeholder="you@example.com" autocomplete="email">
             </div>
+            <div class="form-note" style="margin-top:6px"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> Email is only used for the first 50 list. Leave it blank to stay anonymous.</div>
           </div>
 
-          <button class="btn btn-ink" type="submit">Send my feedback <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="form-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> No medical details, please. This is a research form, not medical advice.</div>
+          <button class="btn btn-ink" type="submit">Send my answers <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="form-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> No medical details, please. This is a survey, not medical advice.</div>
         </form>
 
         <div class="form-success" role="status" aria-live="polite">
           <div class="success-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h2>Thanks for telling us.</h2>
-          <p>We know what men carry. Want first access for the first 50? Leave your email below&mdash;the survey stays anonymous if you don't.</p>
-
-          <form id="memberForm" class="member-form" action="https://formsubmit.co/chrishubbel72&#64;gmail.com" method="POST" novalidate>
-            <input type="hidden" name="_subject" value="First 50 members list">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_cc" value="ashley&#64;rejuv-kc.com,tracy&#64;rejuv-kc.com">
-            <input type="hidden" name="_next" value="https://limenhelix.github.io/rejuv-kearney/?joined=sent#feedback">
-            <input type="hidden" name="_replyto" value="">
-            <input type="hidden" name="Source" value="First 50 members list">
-            <input type="hidden" name="Response ID" value="">
-            <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-            <div class="form-error member-error" role="alert" aria-live="polite"></div>
-            <div class="field">
-              <label for="memberEmail">Email</label>
-              <input id="memberEmail" name="Email" type="email" placeholder="you@example.com" autocomplete="email" required>
-            </div>
-            <label class="consent"><input id="memberConsent" type="checkbox" name="Okay to email" value="Yes" required> <span>It's okay to email me about the first 50 members list.</span></label>
-            <button class="btn btn-gold" type="submit">Join the first 50 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <div class="form-note">Email is only used for the first 50 members list. We don't sell it.</div>
-          </form>
-
-          <div class="member-joined"><strong>You're on the first 50 list.</strong> We'll be in touch.</div>
+          <p>If you left an email, you're on the first 50 list. If not, your answers are still anonymous and counted.</p>
           <a class="btn btn-ink" href="clinic.html">See the full clinic site &rarr;</a>
         </div>
       </div>
@@ -351,21 +317,9 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
   var errorBox = card.querySelector(".form-error");
   var subject = form.querySelector('input[name="_subject"]');
   var summary = form.querySelector('input[name="Activities (summary)"]');
-  var responseIdInput = form.querySelector('input[name="Response ID"]');
-  var memberForm = document.getElementById("memberForm");
-  var memberEmail = document.getElementById("memberEmail");
-  var memberError = memberForm ? memberForm.querySelector(".member-error") : null;
-  var memberJoined = card.querySelector(".member-joined");
-  var memberResponseId = memberForm ? memberForm.querySelector('input[name="Response ID"]') : null;
-
-  var responseId;
-  try { responseId = sessionStorage.getItem("rejuvFeedbackId"); } catch (e) {}
-  if (!responseId) {
-    responseId = "FB-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 8);
-    try { sessionStorage.setItem("rejuvFeedbackId", responseId); } catch (e) {}
-  }
-  if (responseIdInput) responseIdInput.value = responseId;
-  if (memberResponseId) memberResponseId.value = responseId;
+  var emailInput = document.getElementById("fbEmail");
+  var replyTo = form.querySelector('input[name="_replyto"]');
+  var first50 = form.querySelector('input[name="First 50 list"]');
 
   var params = new URLSearchParams(window.location.search);
   ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","fbclid"].forEach(function (key) {
@@ -402,11 +356,6 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
     try { if (typeof window.fbq === "function") window.fbq("track", "Lead"); } catch (e) {}
   }
 
-  function showJoined() {
-    if (memberForm) memberForm.style.display = "none";
-    if (memberJoined) memberJoined.classList.add("show");
-  }
-
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     setError("");
@@ -415,9 +364,12 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
 
     var q1 = form.querySelector('input[name="Q1 Use clinic"]:checked');
     var q2 = form.querySelector('input[name="Q2 Biggest stressor"]:checked');
-    if (subject) subject.value = "Rejuv Kearney feedback — " + (q1 ? q1.value : "?") + " / " + (q2 ? q2.value : "?");
+    var email = emailInput.value.trim();
+    if (replyTo) replyTo.value = email;
+    if (first50) first50.value = email ? "Yes" : "No";
+    if (subject) subject.value = "Rejuv Kearney feedback — " + (q1 ? q1.value : "?") + " / " + (q2 ? q2.value : "?") + (email ? " — First 50" : "");
     if (summary) {
-      summary.value = Array.prototype.slice.call(form.querySelectorAll('input[name="Activities"]:checked')).map(function (box) { return box.value; }).join(", ");
+      summary.value = Array.prototype.slice.call(form.querySelectorAll('input[name="Would use"]:checked')).map(function (box) { return box.value; }).join(", ");
     }
 
     var submit = form.querySelector('button[type="submit"]');
@@ -449,56 +401,7 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
       });
   });
 
-  if (memberForm) {
-    memberForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      memberError.innerHTML = "";
-      memberError.classList.remove("show");
-      if (!memberForm.reportValidity()) return;
-
-      var email = memberEmail.value.trim();
-      var memberSubject = memberForm.querySelector('input[name="_subject"]');
-      var memberReply = memberForm.querySelector('input[name="_replyto"]');
-      if (memberSubject) memberSubject.value = "First 50 members list — " + email;
-      if (memberReply) memberReply.value = email;
-      if (memberResponseId) memberResponseId.value = responseId;
-
-      var btn = memberForm.querySelector('button[type="submit"]');
-      var original = btn.innerHTML;
-      btn.disabled = true;
-      btn.innerHTML = "Joining…";
-
-      var action = memberForm.getAttribute("action") || "";
-      var endpoint = action.replace("formsubmit.co/", "formsubmit.co/ajax/");
-
-      fetch(endpoint, {
-        method: "POST",
-        body: new FormData(memberForm),
-        headers: { "Accept": "application/json" }
-      })
-        .then(function (response) {
-          return response.json().catch(function () { return {}; }).then(function (json) {
-            if (!response.ok) throw new Error((json && json.message) || "Request failed");
-            var ok = json && (json.success === true || json.success === "true");
-            if (!ok) throw new Error((json && json.message) || "Request failed");
-            return json;
-          });
-        })
-        .then(function () {
-          showJoined();
-          try { if (typeof window.fbq === "function") window.fbq("track", "CompleteRegistration"); } catch (e) {}
-        })
-        .catch(function () {
-          btn.disabled = false;
-          btn.innerHTML = original;
-          memberError.innerHTML = "We could not add you just now. Please try again, or call <a href='tel:+18163434883'>816-343-4883</a>.";
-          memberError.classList.add("show");
-        });
-    });
-  }
-
   if (params.get("feedback") === "sent") showSuccess();
-  if (params.get("joined") === "sent") { showSuccess(); showJoined(); }
 })();
 </script>
 
