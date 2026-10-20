@@ -17,6 +17,7 @@ Two static pages, no build step and no server:
 ## What is on the page
 
 **Root promo (`index.html`)**
+- Hook: **“We know what men carry.”** Not just treatment: a club, groups, activities, and a place to talk.
 - In-your-face 60-second survey: would you use a clinic like this, biggest stressor, interest in free activities/support groups
 - No email required for the survey; optional activity checkboxes and open comment
 - On submit, the success panel asks for an email **only** to join the first 50 members list, with a separate consent checkbox
