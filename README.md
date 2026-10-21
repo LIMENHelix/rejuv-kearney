@@ -53,6 +53,7 @@ This is the paid-ads version. Meta treats prescription-treatment names as restri
 - Neutral stress categories: work, marriage/relationship, family, money, career, health, other
 - Survey asks: would you use a Kearney men's health and community club, which activities, and what causes the most stress
 - Optional email only for the first 50 members list
+- Link-free QR post image: `assets/fb-qr.png` — QR points to `survey.html`; post the image with no link to avoid the Facebook organic link cap
 
 Use `https://limenhelix.github.io/rejuv-kearney/survey.html` as the ad URL. Keep the root promo and full clinic site for organic traffic and for people who already know the clinic.
 
