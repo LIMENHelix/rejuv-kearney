@@ -215,3 +215,5 @@ The chat answer bank runs locally in the browser. The only network request from 
 - Use `survey.html` (not the root or clinic page) as the URL for paid Meta ads; the root names prescription treatments and will likely be rejected.
 - Add the Meta Pixel and UTM-tagged ad URLs.
 - Remove `noindex` at official launch.
+
+- Side QR card on the survey page: `assets/qr-root.png` (points to the survey itself).
