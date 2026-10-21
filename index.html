@@ -97,6 +97,11 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
 .checklist li{display:flex;gap:9px;align-items:flex-start;font-size:.92rem;color:#3E4A50;line-height:1.5}
 .checklist li::before{content:"✓";color:var(--gold-deep);font-weight:700;flex:none}
 .small{font-size:.78rem;color:#6E787C;margin-top:24px;line-height:1.5}
+.side-qr{margin-top:22px;background:#F7F4EC;border:1px solid rgba(33,49,59,.14);border-radius:10px;padding:14px;display:flex;gap:14px;align-items:center}
+.side-qr img{width:132px;height:132px;flex:none;background:#fff;border-radius:6px;padding:6px}
+.side-qr strong{display:block;font-family:var(--font-head);font-size:.98rem;line-height:1.25;color:#1A252B}
+.side-qr span{display:block;font-size:.78rem;line-height:1.45;color:#5A656B;margin-top:4px}
+@media(max-width:900px){.side-qr{max-width:420px}}
 @media(max-width:900px){.feedback-grid{grid-template-columns:1fr}}
 
 /* Form */
@@ -198,6 +203,13 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
           <li>Men's support groups</li>
         </ul>
         <p class="small">Your answers go to the Rejuv Kearney team. Leave contact info blank to stay anonymous. We don't sell your information.</p>
+        <div class="side-qr">
+          <img src="assets/qr-root.png" alt="QR code to take the Kearney men's health survey" width="300" height="300" loading="lazy">
+          <div>
+            <strong>Scan to take the survey</strong>
+            <span>30 seconds &middot; anonymous option &middot; first 50 get first access</span>
+          </div>
+        </div>
       </aside>
 
       <div class="form-card">
