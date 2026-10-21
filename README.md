@@ -4,6 +4,7 @@ Temporary soft-launch lead-capture site for **Rejuv Men's Health + Wellness**, 6
 
 **Live root (feedback promo):** https://limenhelix.github.io/rejuv-kearney/
 **Full clinic site:** https://limenhelix.github.io/rejuv-kearney/clinic.html
+**Ad-safe survey:** https://limenhelix.github.io/rejuv-kearney/survey.html
 
 **Status:** Live on GitHub Pages (public repo, `main` branch, root). Soft-launch `noindex` is active. FormSubmit is activated on the chrishubbel72@gmail.com endpoint; a test CC reached Tracy. Confirm Ashley receives the CC.
 
@@ -11,6 +12,7 @@ Two static pages, no build step and no server:
 
 - `index.html` — the feedback promo: two required clicks (would you use it, biggest stress), a click-what-you'd-use list, and an optional email for the first-50 members list. One submit.
 - `clinic.html` — the full clinic site (services, coaching, The 645 Club, Testo, Founding 100, lead and partner forms).
+- `survey.html` — the clean Meta-safe survey: no treatment names, no clinic links, neutral stress categories. Use this URL for paid ads.
 
 ---
 
@@ -39,6 +41,20 @@ Two static pages, no build step and no server:
 - Sticky mobile callback + book bar
 - **Testo AI concierge** at the bottom right: Kearney local color, TRT, labs, weight loss, ED, peptides, PRP, longevity, coaching, first responders, military, dads, The 645 Club, basketball, football, "man stuff," pricing, insurance, and booking. It has quick prompts, a book-consult button, a clinic call button, voice on/off, and a built-in educational-only disclaimer.
 - `noindex` soft-launch tag (remove when ready for search traffic)
+
+---
+
+## Ad-safe survey (`survey.html`)
+
+This is the paid-ads version. Meta treats prescription-treatment names as restricted health advertising, so this page deliberately omits them.
+
+- No testosterone, peptides, ED, weight-loss, labs, or clinic language
+- No links to `clinic.html` or the treatment landing page
+- Neutral stress categories: work, marriage/relationship, family, money, career, health, other
+- Survey asks: would you use a Kearney men's health and community club, which activities, and what causes the most stress
+- Optional email only for the first 50 members list
+
+Use `https://limenhelix.github.io/rejuv-kearney/survey.html` as the ad URL. Keep the root promo and full clinic site for organic traffic and for people who already know the clinic.
 
 ---
 
@@ -170,6 +186,7 @@ The chat answer bank runs locally in the browser. The only network request from 
   - mobile menu opens
   - mobile headline visible
 - Promo checks: one-submit survey with and without email, First 50 Yes/No, no member form, mobile no overflow; clinic.html loads with Testo.
+- Ad-safe survey checks: no treatment terms or clinic links in visible text, one-submit payload, First 50 Yes, mobile no overflow.
 - 18/18 Testo checks passed:
   - panel opens, greeting and quick prompts render
   - TRT, labs, weight loss, ED, peptides, PRP, longevity, coaching, first responders, military, dads, 645 Club, basketball, football, Kearney, pricing, insurance, privacy, hours, partner, and refill answers
@@ -194,5 +211,6 @@ The chat answer bank runs locally in the browser. The only network request from 
 - Have the clinical team review Testo's answer bank, especially TRT, weight loss, ED, peptides, and pricing claims.
 - Test Testo's voice and mute on the live site after the Pages rebuild.
 - Have counsel review the alcohol offer before paid promotion.
+- Use `survey.html` (not the root or clinic page) as the URL for paid Meta ads; the root names prescription treatments and will likely be rejected.
 - Add the Meta Pixel and UTM-tagged ad URLs.
 - Remove `noindex` at official launch.
