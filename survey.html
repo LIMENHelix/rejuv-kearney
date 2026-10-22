@@ -56,10 +56,9 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
 /* Header */
 .promo-header{position:sticky;top:0;z-index:50;background:rgba(11,17,21,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
 .promo-header .container{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none;line-height:1}
-.brand-mark{width:38px;height:38px;border:1px solid var(--gold);border-radius:3px;display:grid;place-items:center;color:var(--gold);font-family:var(--font-head);font-weight:800;font-size:1.2rem;background:rgba(197,163,89,.05)}
-.brand-text strong{display:block;font-family:var(--font-head);font-weight:800;font-size:1.18rem;letter-spacing:.2em}
-.brand-text span{display:block;font-family:var(--font-ui);font-size:.52rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.brand{display:flex;align-items:center;text-decoration:none;line-height:1;flex:none}
+.brand-logo{display:block;height:44px;width:auto}
+@media(max-width:560px){.brand-logo{height:36px}}
 .site-link{font-family:var(--font-ui);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(197,163,89,.35);padding-bottom:3px;white-space:nowrap}
 .site-link:hover{color:var(--gold-bright)}
 
@@ -163,9 +162,8 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
 
 <header class="promo-header">
   <div class="container">
-    <a class="brand" href="#" aria-label="Rejuv Men's Health and Wellness">
-      <span class="brand-mark" aria-hidden="true">R</span>
-      <span class="brand-text"><strong>REJUV</strong><span>Men's Health + Wellness</span></span>
+    <a class="brand" href="#" aria-label="Men's Health and Wellness">
+      <img class="brand-logo" src="assets/logo-men-health-cream.png" alt="Men's Health + Wellness" width="1248" height="350">
     </a>
     <a class="site-link" href="#feedback">Take the survey &rarr;</a>
   </div>

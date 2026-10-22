@@ -164,21 +164,9 @@ h2{
 }
 .site-header.scrolled{background:rgba(11,17,21,.96);border-bottom-color:var(--line-soft)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;line-height:1;flex:none}
-.brand-mark{
-  width:38px;height:38px;border:1px solid var(--gold);border-radius:3px;
-  display:grid;place-items:center;color:var(--gold);
-  font-family:var(--font-head);font-weight:800;font-size:1.22rem;
-  background:rgba(197,163,89,.05);
-}
-.brand-text strong{
-  display:block;font-family:var(--font-head);font-weight:800;
-  font-size:1.2rem;letter-spacing:.2em;color:var(--text);
-}
-.brand-text span{
-  display:block;font-family:var(--font-ui);font-size:.52rem;font-weight:600;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:4px;
-}
+.brand{display:flex;align-items:center;text-decoration:none;line-height:1;flex:none}
+.brand-logo{display:block;height:50px;width:auto}
+@media(max-width:560px){.brand-logo{height:40px}}
 .desktop-nav{display:flex;align-items:center;gap:26px}
 .desktop-nav a{
   font-family:var(--font-ui);font-size:.69rem;font-weight:600;letter-spacing:.12em;
@@ -626,6 +614,7 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
 .site-footer{background:#080D10;border-top:1px solid var(--line-soft);padding:56px 0 32px;color:var(--muted)}
 .footer-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1.2fr;gap:34px}
 .footer-brand .brand{margin-bottom:16px}
+.footer-brand .brand-logo{height:44px}
 .footer-brand p{font-size:.84rem;line-height:1.65;color:#8A9599;max-width:34ch;margin:0}
 .footer-grid h4{
   font-family:var(--font-ui);font-size:.64rem;font-weight:600;letter-spacing:.14em;
@@ -796,12 +785,8 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
 
 <header class="site-header" id="siteHeader">
   <div class="container header-inner">
-    <a class="brand" href="#top" aria-label="Rejuv Men's Health and Wellness, home">
-      <span class="brand-mark" aria-hidden="true">R</span>
-      <span class="brand-text">
-        <strong>REJUV</strong>
-        <span>Men's Health + Wellness</span>
-      </span>
+    <a class="brand" href="#top" aria-label="Men's Health and Wellness, home">
+      <img class="brand-logo" src="assets/logo-men-health-cream.png" alt="Men's Health + Wellness" width="1248" height="350">
     </a>
 
     <nav class="desktop-nav" aria-label="Main navigation">
@@ -1468,9 +1453,8 @@ details[open] .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="#top" aria-label="Rejuv Men's Health and Wellness, back to top">
-          <span class="brand-mark" aria-hidden="true">R</span>
-          <span class="brand-text"><strong>REJUV</strong><span>Men's Health + Wellness</span></span>
+        <a class="brand" href="#top" aria-label="Men's Health and Wellness, back to top">
+          <img class="brand-logo" src="assets/logo-men-health-cream.png" alt="Men's Health + Wellness" width="1248" height="350">
         </a>
         <p>A private men's health clinic in Kearney, Missouri. Real labs, real providers, and a plan built around your life.</p>
       </div>
