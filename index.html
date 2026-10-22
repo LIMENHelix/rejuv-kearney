@@ -54,14 +54,15 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
 .btn-ink:hover{background:#24343C;transform:translateY(-1px)}
 
 /* Hero */
-.hero-logo{width:clamp(240px,30vw,370px);height:auto;margin:0 0 28px}
-@media(max-width:900px){.hero-logo{width:min(320px,78vw);margin-bottom:24px}}
+.hero-place{font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+.hero-logo{width:clamp(240px,30vw,370px);height:auto;margin:0 0 24px}
+@media(max-width:900px){.hero-logo{width:min(320px,78vw);margin-bottom:22px}}
 .promo-hero{position:relative;overflow:hidden;background:var(--ink);min-height:min(660px,82svh);display:flex;align-items:center}
 .hero-art{position:absolute;inset:0 0 0 auto;width:52%;z-index:0;background-color:var(--ink);background-image:url("assets/lions-bg.jpg");background-position:center 28%;background-size:cover;background-repeat:no-repeat}
 .hero-art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,rgba(11,17,21,.96) 12%,rgba(11,17,21,.55) 38%,rgba(11,17,21,.05) 72%,rgba(11,17,21,.18) 100%),linear-gradient(0deg,var(--ink) 0%,transparent 30%)}
 .hero-inner{position:relative;z-index:2;width:min(1120px,calc(100% - 40px));max-width:none;margin-inline:auto;padding:clamp(64px,9vw,110px) 0}
 .hero-inner > *{max-width:680px}
-.promo-hero h1{font-size:clamp(2.9rem,6.4vw,5.2rem);line-height:.95;letter-spacing:-.045em;margin:18px 0 0}
+.promo-hero h1{font-size:clamp(2.9rem,6.4vw,5.2rem);line-height:.95;letter-spacing:-.045em;margin:0}
 .promo-hero h1 .gold{color:var(--gold);display:block}
 .hero-sub{font-size:clamp(1.05rem,1.5vw,1.22rem);line-height:1.62;color:#D3D8D5;max-width:54ch;margin:22px 0 0}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;align-items:center}
@@ -162,8 +163,8 @@ h1,h2,h3{font-family:var(--font-head);font-weight:800;letter-spacing:-.025em;col
   <section class="promo-hero" aria-labelledby="promoTitle">
     <div class="hero-art" role="img" aria-label="A male lion in golden light"></div>
     <div class="container hero-inner">
+      <p class="hero-place">Kearney</p>
       <img class="hero-logo" src="assets/logo-men-health-gold.png" alt="Men's Health + Wellness" width="1248" height="350">
-      <p class="eyebrow">Kearney Men's Health + Wellness</p>
       <h1 id="promoTitle">We know what men carry.</h1>
       <p class="hero-sub">You don't have to carry it alone. We're thinking of opening a men's clinic in Kearney&mdash;real health care, a club, groups, activities, and a place to talk. Click what you'd use. 30 seconds.</p>
       <div class="hero-actions">
